@@ -25,11 +25,13 @@ public:
 	//Getters and Setters
 	MathLibrary::Vector2 LocalPosition();
 	void LocalPosition(MathLibrary::Vector2 position);
-	MathLibrary::Vector2 GetLocalScale();
-	MathLibrary::Vector2 GetGlobalPosition();
-	MathLibrary::Vector2 GetGlobalScale();
-	float GetLocalRotation();
-	float GetGlobalRotation();
+	MathLibrary::Vector2 LocalScale();
+	void LocalScale(MathLibrary::Vector2 scale);
+	MathLibrary::Vector2 GlobalPosition();
+	MathLibrary::Vector2 GlobalScale();
+	float LocalRotation();
+	void LocalRotation(float radians);
+	
 
 	MathLibrary::Vector2 GetForward();
 	MathLibrary::Vector2 GetRight();
@@ -47,7 +49,7 @@ private:
 	Transform2D** m_children;
 	Actor* m_owner;
 	float m_localRotationAngle;
-
+	MathLibrary::Matrix3* m_identityMatrix;
 
 
 
