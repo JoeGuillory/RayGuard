@@ -2,33 +2,49 @@
 #include "Actor.h"
 #include "Matrix3.h"
 #include <cmath>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
-Transform2D::Transform2D() {}
+Transform2D::Transform2D() 
+{
+	m_identityMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	*m_localMatrix = *m_identityMatrix;
+	*m_globalMatrix = *m_identityMatrix;
+	*m_localTranslation = *m_identityMatrix;
+	*m_localRotation = *m_identityMatrix;
+	*m_localScale = *m_identityMatrix;
+	m_localRotationAngle = 0;
+	Transform2D m_parent = 0;
+
+}
 
 Transform2D::Transform2D(Actor* owner)
 {
+	
 	m_owner = owner;
+	
 }
 
 Transform2D::~Transform2D()
 {
+	
 }
 
 //Public Functions
 
 void Transform2D::Translate(MathLibrary::Vector2 direction)
 {
-	LocalPosition(LocalPosition() + direction)
+	LocalPosition(LocalPosition() + direction);
 }
 
 void Transform2D::Translate(float x, float y)
 {
-	LocalPosition((LocalPosition() + MathLibrary::Vector2(x,y)))
+	LocalPosition((LocalPosition() + MathLibrary::Vector2(x, y)));
 }
 
 void Transform2D::Rotate(float radians)
 {
-	
+	*m_localRotation = MathLibrary::Matrix3::createRotation(m_localRotationAngle + radians);
 }
 
 void Transform2D::SetAngle(float radians)
@@ -94,19 +110,39 @@ MathLibrary::Vector2 Transform2D::GlobalPosition()
 MathLibrary::Vector2 Transform2D::GlobalScale()
 {
 	MathLibrary::Vector2 xAxis = MathLibrary::Vector2(m_globalMatrix->m00, m_globalMatrix->m10);
-	MathLibrary::Vector2 xAxis = MathLibrary::Vector2(m_globalMatrix->m01, m_globalMatrix->m11);
+	MathLibrary::Vector2 yAxis = MathLibrary::Vector2(m_globalMatrix->m01, m_globalMatrix->m11);
 	
-	return MathLibrary::Vector2(xAxis.getMagnitude(),xAxis.getMagnitude());
+	return MathLibrary::Vector2(xAxis.getMagnitude(),yAxis.getMagnitude());
 }
 
-float Transform2D::LocalRotation()
+MathLibrary::Matrix3 Transform2D::LocalRotation()
 {
-	return m_localRotationAngle
+	return *m_localRotation;
 }
 
-void Transform2D::LocalRotation(float radians)
+void Transform2D::LocalRotation(MathLibrary::Matrix3 rotation)
 {
+	*m_localRotation = rotation;
 	
+	m_localRotationAngle = -(float)atan2(m_localRotation->m01, m_localRotation->m00);
+	UpdateTransforms();
+}
+/// <summary>
+/// Calculates the input to degrees
+/// </summary>
+/// <param name="radian"></param>
+/// <returns></returns>
+float Transform2D::ToDegrees(float radian)
+{
+	return (radian * 180) / M_PI;
+}
+/// <summary>
+/// Returns this objects local rotation angle in degrees
+/// </summary>
+/// <returns></returns>
+float Transform2D::GetToDegrees()
+{
+	return (this->m_localRotationAngle * 180) / M_PI;
 }
 
 MathLibrary::Vector2 Transform2D::GetForward()

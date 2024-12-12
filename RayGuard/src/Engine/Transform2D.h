@@ -29,13 +29,17 @@ public:
 	void LocalScale(MathLibrary::Vector2 scale);
 	MathLibrary::Vector2 GlobalPosition();
 	MathLibrary::Vector2 GlobalScale();
-	float LocalRotation();
-	void LocalRotation(float radians);
+	MathLibrary::Matrix3 LocalRotation();
+	void LocalRotation(MathLibrary::Matrix3 rotation);
+	float LocalRotationAngle() { return m_localRotationAngle; };
+	float GetToDegrees();
+	float ToDegrees(float radian);
+	Transform2D* GetParent() {return m_parent; }
+	Transform2D** GetChild() { return m_children; }
+	Actor* GetOwner() { return m_owner; }
 	
-
 	MathLibrary::Vector2 GetForward();
 	MathLibrary::Vector2 GetRight();
-	Actor* GetOwner() { return m_owner; }
 
 private:
 	//Variables
