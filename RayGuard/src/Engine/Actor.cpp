@@ -1,32 +1,27 @@
 #include "Actor.h"
 #include "Transform2D.h"
 
-Actor::Actor()
-{
-	transform = new Transform2D();
-	m_started = false;
-	m_enabled = true;
-	m_name = 0;
-}
-
 Actor::Actor(char* name)
 {
+	Transform = new Transform2D();
+	m_started = false;
+	m_enabled = true;
 	m_name = name;
 }
 
 Actor::~Actor()
 {
-	delete transform;
+	delete Transform;
 }
 
 
 
 Actor Actor::Instantiate(Actor actor, Transform2D* parent, MathLibrary::Vector2 position, float rotation)
 {
-	actor.transform->LocalPosition(position);
-	actor.transform->Rotate(rotation);
+	actor.Transform->LocalPosition(position);
+	actor.Transform->Rotate(rotation);
 	if (parent != nullptr)
-		parent->AddChild(actor.transform);
+		parent->AddChild(actor.Transform);
 	//add add actor to scene one scenes are implimented
 	return actor;
 }

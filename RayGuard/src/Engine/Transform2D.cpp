@@ -5,7 +5,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-Transform2D::Transform2D() 
+Transform2D::Transform2D(Actor* owner) 
 {
 	m_localMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_globalMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
@@ -15,16 +15,10 @@ Transform2D::Transform2D()
 	m_localRotationAngle = 0;
 	m_parent = 0;
 	m_children = new Transform2D * [0];
-	m_owner = 0;
-	
-}
-
-Transform2D::Transform2D(Actor* owner)
-{
-	Transform2D();
 	m_owner = owner;
 	
 }
+
 
 Transform2D::~Transform2D()
 {

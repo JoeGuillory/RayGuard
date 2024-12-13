@@ -9,8 +9,8 @@ class Transform2D;
 class Actor
 {
 public:
-	Actor();
-	Actor(char* name);
+	
+	Actor(char* name = nullptr);
 	~Actor();
 
 	//Public functions
@@ -32,7 +32,7 @@ private:
 	bool m_enabled;
 	char* m_name;
 public:
-	Transform2D* transform;
+	Transform2D* Transform;
 
 	/*Thing that need to be added
 	1.AddComponent

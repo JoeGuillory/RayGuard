@@ -10,8 +10,7 @@ class Actor;
 class Transform2D
 {
 public:
-	Transform2D();
-	Transform2D(Actor* owner);
+	Transform2D(Actor* owner = nullptr);
 	~Transform2D();
 
 	//Functions
