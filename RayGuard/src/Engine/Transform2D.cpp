@@ -7,7 +7,6 @@
 
 Transform2D::Transform2D() 
 {
-	
 	m_localMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_globalMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_localTranslation = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
@@ -15,8 +14,9 @@ Transform2D::Transform2D()
 	m_localScale = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_localRotationAngle = 0;
 	m_parent = 0;
-	m_children
-
+	m_children = new Transform2D * [0];
+	m_owner = 0;
+	
 }
 
 Transform2D::Transform2D(Actor* owner)
@@ -33,6 +33,7 @@ Transform2D::~Transform2D()
 	delete m_localTranslation;
 	delete m_localRotation;
 	delete m_localScale;
+	delete m_children;
 }
 
 //Public Functions
@@ -74,6 +75,21 @@ void Transform2D::UpdateTransforms()
 	// Update each childs transform needs to be added
 }
 
+void Transform2D::AddChild(Transform2D* child)
+{
+	if (child == m_parent)
+	{
+		return;
+	}
+	
+	
+}
+
+void Transform2D::RemoveChild(Transform2D* child)
+{
+
+}
+
 //Getters and Setters 
 
 /// <summary>
@@ -91,7 +107,7 @@ MathLibrary::Vector2 Transform2D::LocalPosition()
 void Transform2D::LocalPosition(MathLibrary::Vector2 position)
 {
 	m_localTranslation->m02 = position.x;
-	m_localTranslation->m11 = position.y;
+	m_localTranslation->m12 = position.y;
 	UpdateTransforms();
 }
 
@@ -102,7 +118,7 @@ MathLibrary::Vector2 Transform2D::LocalScale()
 
 void Transform2D::LocalScale(MathLibrary::Vector2 scale)
 {
-	m_localScale->m02 = scale.x;
+	m_localScale->m00 = scale.x;
 	m_localScale->m11 = scale.y;
 	UpdateTransforms();
 }

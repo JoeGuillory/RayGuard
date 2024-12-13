@@ -3,7 +3,7 @@
 
 namespace MathLibrary
 {
-	class Matrix3;
+	struct Matrix3;
 }
 class Actor;
 
@@ -20,6 +20,8 @@ public:
 	void Rotate(float radians);
 	void SetAngle(float radians);
 	void UpdateTransforms();
+	void AddChild(Transform2D* child);
+	void RemoveChild(Transform2D* child);
 
 
 	//Getters and Setters
