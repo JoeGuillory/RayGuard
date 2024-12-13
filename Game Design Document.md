@@ -4,20 +4,18 @@ by JoeGuillory and Joshua_Production
 # Summary
 ## Rayguard is a simple tower defense game where the player defends against waves of enemies by placing various types of towers along a set path. 
 
-Genre: Tower Defense
-Gameplay
-Core Gameplay Mechanics:
-Players place towers along a path to prevent enemies from reaching their base.
-Each tower has different attack speeds and do varying damage.
-Players earn in-game currency for killing enemies, which they use to upgrade towers or place more towers.
+# Core Gameplay
+
+- Players place towers along a path to prevent enemies from reaching their base.
+- There will be set positions where the player can place towers on.
+- Each tower has different attack speeds and do varying damage.
+- Players earn in-game currency for killing enemies, which they use to upgrade towers or place more towers.
 
 Tower Types:
 Each tower has different abilities, and more enemies will spawn in as the game advances.
 
 Basic Tower: Shoots projectiles at enemies.
 
-
-(This can wait
 Slow Tower: Slows down enemies in a specific radius.)
 
 
