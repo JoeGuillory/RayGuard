@@ -53,7 +53,7 @@ private:
 	Transform2D** m_children;
 	Actor* m_owner;
 	float m_localRotationAngle;
-	MathLibrary::Matrix3* m_identityMatrix;
+	
 
 
 

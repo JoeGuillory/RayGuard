@@ -7,27 +7,32 @@
 
 Transform2D::Transform2D() 
 {
-	m_identityMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
-	*m_localMatrix = *m_identityMatrix;
-	*m_globalMatrix = *m_identityMatrix;
-	*m_localTranslation = *m_identityMatrix;
-	*m_localRotation = *m_identityMatrix;
-	*m_localScale = *m_identityMatrix;
+	
+	m_localMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	m_globalMatrix = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	m_localTranslation = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	m_localRotation = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	m_localScale = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_localRotationAngle = 0;
-	Transform2D m_parent = 0;
+	m_parent = 0;
+	m_children
 
 }
 
 Transform2D::Transform2D(Actor* owner)
 {
-	
+	Transform2D();
 	m_owner = owner;
 	
 }
 
 Transform2D::~Transform2D()
 {
-	
+	delete m_localMatrix;
+	delete m_globalMatrix;
+	delete m_localTranslation;
+	delete m_localRotation;
+	delete m_localScale;
 }
 
 //Public Functions
