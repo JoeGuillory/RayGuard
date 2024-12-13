@@ -5,35 +5,43 @@ by JoeGuillory and Joshua_Production
 ## Rayguard is a simple tower defense game where the player defends against waves of enemies by placing various types of towers along a set path. 
 
 # Core Gameplay
-
+## The player will start with 100 gold at the begining of the game 
 - Players place towers along a path to prevent enemies from reaching their base.
 - There will be set positions where the player can place towers on.
 - Each tower has different attack speeds and do varying damage.
 - Players earn in-game currency for killing enemies, which they use to upgrade towers or place more towers.
 
-Tower Types:
-Each tower has different abilities, and more enemies will spawn in as the game advances.
-
-Basic Tower: Shoots projectiles at enemies.
-
-Slow Tower: Slows down enemies in a specific radius.)
-
-
+# Towers
+Each tower has different abilities
+| Name| Description|Cost|
+| :------------| :----------: |:---------:|
+| Basic Tower  |Shoots basic projectiles at enemies | 100g|
+| Slow Tower   |Slows down enemies in a specific radius|125g|
 
 
-Enemies:
-
-Basic Enemy: Low health, easy to kill.
-
-Fast Enemy: Moves quickly but has low health.
-
-Tank Enemy: High health but slow-moving.
+ 
 
 
-Objective:
+
+
+
+# Enemies
+| Name| Description|Gold on death|
+| :------------------- | :----------: |:--------:|
+|Basic Enemy |Low health, easy to kill|25g| 
+|Fast Enemy |Moves quickly but has low health|50g|
+|Tanky Enemy|High heath but moves slow|75g|
+
+
+
+
+
+
+# Objective
  Prevent enemies from reaching the end of the path. The game ends when the player’s base is destroyed.
 
-Graphics
+# Graphics
+We plan on using sprites 
 
 Enemies: Simple sprite-based enemies with unique colors or shapes for each type (e.g., green for basic enemies, red for fast enemies).
 
