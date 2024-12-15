@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Actor.cpp" />
+    <ClCompile Include="src\Engine\Components\Component.cpp" />
     <ClCompile Include="src\Engine\Transform2D.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Actor.h" />
+    <ClInclude Include="src\Engine\Components\Component.h" />
     <ClInclude Include="src\Engine\Transform2D.h" />
     <ClInclude Include="src\Game.h" />
   </ItemGroup>
