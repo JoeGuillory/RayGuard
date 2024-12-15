@@ -1,7 +1,7 @@
 #include "Actor.h"
 #include "Transform2D.h"
 
-Actor::Actor(char* name)
+Actor::Actor(const char* name)
 {
 	Transform = new Transform2D();
 	m_started = false;

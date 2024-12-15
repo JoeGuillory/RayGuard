@@ -10,7 +10,7 @@ class Actor
 {
 public:
 	
-	Actor(char* name = nullptr);
+	Actor(const char* name = nullptr);
 	~Actor();
 
 	//Public functions
@@ -30,7 +30,7 @@ public:
 private:
 	bool m_started;
 	bool m_enabled;
-	char* m_name;
+	const char* m_name;
 public:
 	Transform2D* Transform;
 
