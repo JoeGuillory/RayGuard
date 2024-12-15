@@ -43,16 +43,16 @@ Each tower has different abilities
 # Graphics
 We plan on using sprites 
 
-Enemies: Simple sprite-based enemies with unique colors or shapes for each type (e.g., green for basic enemies, red for fast enemies).
+Enemies: Simple sprite-based enemies with unique colors or shapes for each type, green for basic enemies, red for fast enemies.
 
-Background and Path: The path will be a simple path or line with a basic background (e.g., grass, mountains).
+Background and Path: The path will be a simple path or line with a basic background.
 
-UI: Basic HUD with health, money, and wave number displayed.
-
-
+UI Basic HUD with health, money, and wave number displayed.
 
 
-Gameplay Loop:
+
+
+# Gameplay Loop
 
 The game starts by generating a wave of enemies.
 
@@ -64,7 +64,7 @@ If an enemy reaches the end of the path, the player loses health.
 
 The game continues through waves until the player runs out of health.
 
-6. Game Economy
+# Game Economy
 Currency System:
 Players earn money for killing enemies, which can be used to buy towers.
 
