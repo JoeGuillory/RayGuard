@@ -14,7 +14,7 @@ public:
 	~Actor();
 
 	//Public functions
-	Actor Instantiate(Actor actor,Transform2D* parent = nullptr, MathLibrary::Vector2 position = MathLibrary::Vector2(), float rotation = 0);
+	static Actor* Instantiate(Actor* actor,Transform2D* parent = nullptr, MathLibrary::Vector2 position = MathLibrary::Vector2(), float rotation = 0);
 	void Destroy();
 	virtual void Start();
 	virtual void Update(double deltaTime);

@@ -28,7 +28,7 @@ public:
 	void Insert(int index, const T& value);
 	void Insert(int index, const T* array, int size);
 	void Insert(int index, const DynamicArray<T>& other);
-	void Remove(int index);
+	void RemoveIndex(int index);
 	void Remove(const T& value);
 	void Remove(const T* array, int size);
 	void Remove(const DynamicArray<T>& other);
@@ -91,7 +91,7 @@ inline DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other)
 
 template<typename T>
 inline T& DynamicArray<T>::operator[](int index)
-{
+{	
 	return m_array[index];
 }
 
@@ -226,7 +226,7 @@ inline void DynamicArray<T>::Insert(int index, const DynamicArray<T>& other)
 }
 
 template<typename T>
-inline void DynamicArray<T>::Remove(int index)
+inline void DynamicArray<T>::RemoveIndex(int index)
 {
 	for (int i = index; i < m_length -1; i++)
 	{
@@ -242,7 +242,7 @@ inline void DynamicArray<T>::Remove(const T& value)
 	{
 		if (m_array[i] == value)
 		{
-			Remove(i);
+			RemoveIndex(i);
 			return;
 		}
 	}

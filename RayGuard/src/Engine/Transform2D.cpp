@@ -4,6 +4,7 @@
 #include <cmath>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include "DynamicArray.h"
 
 Transform2D::Transform2D(Actor* Owner) 
 {
@@ -14,7 +15,6 @@ Transform2D::Transform2D(Actor* Owner)
 	m_localScale = new MathLibrary::Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	m_localRotationAngle = 0;
 	m_parent = 0;
-	m_children = new Transform2D * [0];
 	m_owner = Owner;
 	
 }
@@ -27,7 +27,6 @@ Transform2D::~Transform2D()
 	delete m_localTranslation;
 	delete m_localRotation;
 	delete m_localScale;
-	delete m_children;
 }
 
 //Public Functions
@@ -35,6 +34,7 @@ Transform2D::~Transform2D()
 void Transform2D::Translate(MathLibrary::Vector2 direction)
 {
 	LocalPosition(LocalPosition() + direction);
+	
 }
 
 void Transform2D::Translate(float x, float y)
@@ -65,8 +65,11 @@ void Transform2D::UpdateTransforms()
 	{
 		*m_globalMatrix = *m_localMatrix;
 	}
-
-	// Update each childs transform needs to be added
+	for (Transform2D* element : m_children)
+	{
+		element->UpdateTransforms();
+	}
+	
 }
 
 void Transform2D::AddChild(Transform2D* child)
@@ -75,13 +78,29 @@ void Transform2D::AddChild(Transform2D* child)
 	{
 		return;
 	}
-	
-	
+	child->SetParent(this);
+	m_children.Add(child);
 }
 
-void Transform2D::RemoveChild(Transform2D* child)
+bool Transform2D::RemoveChild(Transform2D* child)
 {
+	
 
+	if (m_children.Length() <= 0)
+		return false;
+	if (m_children.Length() == 1 && m_children[0] == child)
+	{
+		m_children.Clear();
+		return true;
+	}
+	else
+	{
+		m_children.Remove(child);
+		return true;
+	}
+	
+
+	
 }
 
 //Getters and Setters 
@@ -150,6 +169,10 @@ void Transform2D::LocalRotation(MathLibrary::Matrix3 rotation)
 float Transform2D::ToDegrees(float radian)
 {
 	return (radian * 180) / M_PI;
+}
+void Transform2D::SetParent(Transform2D* parent)
+{
+	m_parent = parent;
 }
 /// <summary>
 /// Returns this objects local rotation angle in degrees

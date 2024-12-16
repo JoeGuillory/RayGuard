@@ -16,12 +16,12 @@ Actor::~Actor()
 
 
 
-Actor Actor::Instantiate(Actor actor, Transform2D* parent, MathLibrary::Vector2 position, float rotation)
+Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector2 position, float rotation)
 {
-	actor.Transform->LocalPosition(position);
-	actor.Transform->Rotate(rotation);
+	actor->Transform->LocalPosition(position);
+	actor->Transform->Rotate(rotation);
 	if (parent != nullptr)
-		parent->AddChild(actor.Transform);
+		parent->AddChild(actor->Transform);
 	//add add actor to scene one scenes are implimented
 	return actor;
 }
