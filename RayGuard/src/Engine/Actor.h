@@ -28,6 +28,8 @@ public:
 	void Enabled(bool value);
 private:
 	
+	template<typename T*>
+	T* AddComponent(T* component);
 
 private:
 	bool m_started;
