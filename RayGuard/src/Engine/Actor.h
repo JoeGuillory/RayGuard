@@ -72,7 +72,13 @@ public:
 template<typename T>
 inline T* Actor::AddComponent(T* component)
 {
-	return nullptr;
+	Component* ptr = dynamic_cast<Component*>(component);
+	if (ptr == nullptr)
+		return false;
+	else
+	{
+		
+	}
 }
 
 template<typename T>
