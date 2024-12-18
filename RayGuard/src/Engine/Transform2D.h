@@ -1,17 +1,17 @@
 #pragma once
 #include "Vector2.h"
-
+#include "DynamicArray.h"
 namespace MathLibrary
 {
 	struct Matrix3;
 }
 class Actor;
 
+
 class Transform2D
 {
 public:
-	Transform2D();
-	Transform2D(Actor* owner);
+	Transform2D(Actor* Owner = nullptr);
 	~Transform2D();
 
 	//Functions
@@ -21,7 +21,7 @@ public:
 	void SetAngle(float radians);
 	void UpdateTransforms();
 	void AddChild(Transform2D* child);
-	void RemoveChild(Transform2D* child);
+	bool RemoveChild(Transform2D* child);
 
 
 	//Getters and Setters
@@ -37,7 +37,8 @@ public:
 	float GetToDegrees();
 	float ToDegrees(float radian);
 	Transform2D* GetParent() {return m_parent; }
-	Transform2D** GetChild() { return m_children; }
+	void SetParent(Transform2D* parent);
+	DynamicArray<Transform2D*> GetChildren() { return m_children; }
 	Actor* GetOwner() { return m_owner; }
 	
 	MathLibrary::Vector2 GetForward();
@@ -52,7 +53,7 @@ private:
 	MathLibrary::Matrix3* m_localScale;
 
 	Transform2D* m_parent;
-	Transform2D** m_children;
+	DynamicArray<Transform2D*> m_children;
 	Actor* m_owner;
 	float m_localRotationAngle;
 	
