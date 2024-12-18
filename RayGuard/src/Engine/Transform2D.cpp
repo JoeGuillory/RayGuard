@@ -49,6 +49,7 @@ void Transform2D::Rotate(float radians)
 
 void Transform2D::SetAngle(float radians)
 {
+	*m_localRotation = MathLibrary::Matrix3::createRotation(radians);
 }
 /// <summary>
 /// Updates the Transforms Matricies
@@ -78,7 +79,7 @@ void Transform2D::AddChild(Transform2D* child)
 	{
 		return;
 	}
-	child->SetParent(this);
+	child->m_parent = this;
 	m_children.Add(child);
 }
 
@@ -157,7 +158,6 @@ MathLibrary::Matrix3 Transform2D::LocalRotation()
 void Transform2D::LocalRotation(MathLibrary::Matrix3 rotation)
 {
 	*m_localRotation = rotation;
-	
 	m_localRotationAngle = -(float)atan2(m_localRotation->m01, m_localRotation->m00);
 	UpdateTransforms();
 }
@@ -170,9 +170,14 @@ float Transform2D::ToDegrees(float radian)
 {
 	return (radian * 180) / M_PI;
 }
-void Transform2D::SetParent(Transform2D* parent)
+/// <summary>
+/// Calculates the input to radians
+/// </summary>
+/// <param name="degree"></param>
+/// <returns></returns>
+float Transform2D::ToRadians(float degree)
 {
-	m_parent = parent;
+	return degree * M_PI / 180;
 }
 /// <summary>
 /// Returns this objects local rotation angle in degrees

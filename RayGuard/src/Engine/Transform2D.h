@@ -36,8 +36,9 @@ public:
 	float LocalRotationAngle() { return m_localRotationAngle; };
 	float GetToDegrees();
 	float ToDegrees(float radian);
+	float ToRadians(float degree);
 	Transform2D* GetParent() {return m_parent; }
-	void SetParent(Transform2D* parent);
+	
 	DynamicArray<Transform2D*> GetChildren() { return m_children; }
 	Actor* GetOwner() { return m_owner; }
 	

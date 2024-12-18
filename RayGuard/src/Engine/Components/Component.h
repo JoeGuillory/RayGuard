@@ -21,9 +21,6 @@ public:
  
 	Component(Actor* _owner = nullptr);
 	~Component();
-		
-	
-
 
 	bool Enabled() { return m_enabled; }
 		
