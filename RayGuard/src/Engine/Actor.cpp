@@ -12,6 +12,7 @@ Actor::Actor(const char* name)
 Actor::~Actor()
 {
 	delete Transform;
+	
 }
 
 

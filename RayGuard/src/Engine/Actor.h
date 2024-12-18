@@ -26,10 +26,22 @@ public:
 	bool Started() { return m_started; }
 	bool Enabled() { return m_enabled; }
 	void Enabled(bool value);
-private:
-	
-	template<typename T*>
+	DynamicArray<Component*> GetComponent() { return m_components;  }
+
+	template<typename T>
 	T* AddComponent(T* component);
+
+	template<typename T>
+	T RemoveComponent(T component);
+
+	template<typename T>
+	T GetComponent(T component);
+
+
+private:
+
+	
+	
 
 private:
 	bool m_started;
@@ -54,3 +66,29 @@ public:
 
 
 };
+
+
+
+template<typename T>
+inline T* Actor::AddComponent(T* component)
+{
+	return nullptr;
+}
+
+template<typename T>
+inline T Actor::RemoveComponent(T component)
+{
+	Component* ptr = dynamic_cast<Component*>(component);
+	if (ptr == nullptr)
+		return false;
+	else
+	{
+		
+	}
+}
+
+template<typename T>
+inline T Actor::GetComponent(T component)
+{
+	return T();
+}
