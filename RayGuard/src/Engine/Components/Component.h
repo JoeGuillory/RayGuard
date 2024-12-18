@@ -32,7 +32,7 @@ public:
 	virtual void OnDisable() { };
 
 	virtual void Start() { m_started = true; }
-
+	bool Started() { return m_started; }
 	virtual void Update(double deltaTime);
 	
 	virtual void End( ) { }

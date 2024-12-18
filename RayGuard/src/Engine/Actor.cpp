@@ -1,6 +1,6 @@
 #include "Actor.h"
 #include "Transform2D.h"
-
+#include "Components\Component.h"
 Actor::Actor(const char* name)
 {
 	Transform = new Transform2D();
@@ -26,9 +26,16 @@ Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector
 	return actor;
 }
 
-void Actor::Destroy()
+void Actor::Destroy(Actor* actor)
 {
-	//destroy all the children in the actors transform
+	for (Transform2D* element : actor->Transform->GetChildren())
+	{
+		actor->Transform->RemoveChild(element);
+	}
+	if (actor->Transform->GetParent() != nullptr)
+	{
+		actor->Transform->GetParent()->RemoveChild(actor->Transform);
+	}
 }
 
 void Actor::Start()
@@ -38,12 +45,21 @@ void Actor::Start()
 
 void Actor::Update(double deltaTime)
 {
-	// Update every component
+	for (Component* element : m_components)
+	{
+		if (!element->Started())
+			element->Start();
+		
+		element->Update(deltaTime);
+	}
 }
 
 void Actor::End()
 {
-	// End each component
+	for (Component* element : m_components)
+	{
+		element->End();
+	}
 }
 
 void Actor::Enabled(bool value)
