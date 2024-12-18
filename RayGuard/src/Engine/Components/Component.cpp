@@ -7,6 +7,10 @@ Component::Component(Actor* Owner)
 	m_started = false;
 }
 
+Component::~Component()
+{
+}
+
 void Component::Update(double deltaTime)
 {
 	

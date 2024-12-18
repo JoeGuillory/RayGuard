@@ -7,6 +7,7 @@ Actor::Actor(const char* name)
 	m_started = false;
 	m_enabled = true;
 	m_name = name;
+	
 }
 
 Actor::~Actor()
@@ -53,6 +54,7 @@ void Actor::Update(double deltaTime)
 		
 		element->Update(deltaTime);
 	}
+	RemoveComponentsToBeRemoved();
 }
 
 void Actor::End()
@@ -72,4 +74,9 @@ void Actor::Enabled(bool value)
 		OnEnable();
 	else
 		OnDisable();
+}
+
+void Actor::RemoveComponentsToBeRemoved()
+{
+	m_components.Remove(m_componentsToRemove);
 }

@@ -1,7 +1,8 @@
 #pragma once
 #include "Vector2.h"
+#include "DynamicArray.h"
+#include "Components/Component.h"
 
-class Component;
 class Transform2D;
 
 
@@ -26,21 +27,21 @@ public:
 	bool Started() { return m_started; }
 	bool Enabled() { return m_enabled; }
 	void Enabled(bool value);
-	DynamicArray<Component*> GetComponent() { return m_components;  }
+	
 
 	template<typename T>
 	T* AddComponent(T* component);
 
 	template<typename T>
-	T RemoveComponent(T component);
+	T* RemoveComponent(T* component);
 
 	template<typename T>
-	T GetComponent(T component);
+	T* GetComponent(T* component);
 
 
 private:
 
-	
+	void RemoveComponentsToBeRemoved();
 	
 
 private:
@@ -53,14 +54,8 @@ public:
 	Transform2D* Transform;
 
 	/*Thing that need to be added
-	1.AddComponent
-	2.RemoveComponent specific one
-	3 Remove Component
-	4.Get component
-	5. Get Mulitple components
-	6. Deal with the component list like adding and removing them from the list
-	7. Add component variable and array
-	8. Add a collision component and add a OnCollision function 
+
+	1. Add a collision component and add a OnCollision function 
 	*/
 
 
@@ -77,24 +72,37 @@ inline T* Actor::AddComponent(T* component)
 		return false;
 	else
 	{
-		
+		m_components.Add(component);
 	}
 }
 
 template<typename T>
-inline T Actor::RemoveComponent(T component)
+inline T* Actor::RemoveComponent(T* component)
 {
 	Component* ptr = dynamic_cast<Component*>(component);
 	if (ptr == nullptr)
 		return false;
 	else
 	{
-		
+		m_componentsToRemove.Add(component);
+		return true;
 	}
 }
 
 template<typename T>
-inline T Actor::GetComponent(T component)
+inline T* Actor::GetComponent(T* component)
 {
-	return T();
+	Component ptr = dynamic_cast<Component>(component);
+	if (ptr = nullptr)
+		return false;
+	else
+	{
+		for (Component* element : m_components)
+		{
+			if (element = component)
+			{
+				return element;
+			}
+		}
+	}
 }
