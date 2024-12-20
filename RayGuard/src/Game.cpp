@@ -7,13 +7,14 @@
 #include "TextureManager.h"
 
 
+
 Game::Game()
 {
-    
+    m_texturemanager = new TextureManager();
 }
 Game::~Game()
 {
-    
+    delete m_texturemanager;
 }
 
 void Game::Run()

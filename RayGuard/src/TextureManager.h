@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include <map>
+
 class TextureManager
 {
 public:
@@ -8,11 +9,12 @@ public:
 	~TextureManager();
 
 
-	void LoadTextures();
-	Texture2D GetTexture(const char* key);
-
+	 void LoadTextures();
+	 Texture2D GetTexture(int key);
+public:
+	static TextureManager* instance;
 private:
-	 std::map<const char*, Texture2D> m_texturemanager;
+	  std::map<int, Texture2D> m_texturemanager;
 
 
 	

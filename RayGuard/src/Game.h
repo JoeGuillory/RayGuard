@@ -20,8 +20,8 @@ public:
 
 private:
 	DynamicArray<Scene*> m_scenes;
-	Scene* m_currentscene;
 	TextureManager* m_texturemanager;
+	Scene* m_currentscene;
 
 
 };
