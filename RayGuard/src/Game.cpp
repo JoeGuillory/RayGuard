@@ -5,12 +5,14 @@
 #include <iostream>
 #include "Engine/Scene/Scene.h"
 #include "TextureManager.h"
+#include "Game/Enemy.h"
 
 
 
 Game::Game()
 {
     m_texturemanager = new TextureManager();
+    
 }
 Game::~Game()
 {
@@ -29,7 +31,7 @@ void Game::Run()
         BeginDrawing();
         ClearBackground(RAYWHITE);
         DrawText("Hi", 190, 200, 20, LIGHTGRAY);
-
+       
         
       
         EndDrawing();

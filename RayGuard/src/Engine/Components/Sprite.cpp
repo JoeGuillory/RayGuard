@@ -10,8 +10,8 @@ Sprite::Sprite(Actor* owner, int key)
 	m_owner = owner;
 	m_scaler = 1;
 	m_startingRotation = 0;
-	m_texture = TextureManager::instance->GetTexture(1);
-	
+	m_texture = TextureManager::instance->GetTexture(key);
+	m_source = { 0,0,(float)m_texture.height,(float)m_texture.width};
 }
 
 Sprite::~Sprite()
