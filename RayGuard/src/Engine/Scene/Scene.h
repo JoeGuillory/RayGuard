@@ -1,5 +1,5 @@
 #pragma once
-
+#include "DynamicArray.h"
 
 class Actor;
 
@@ -16,5 +16,6 @@ public:
 	virtual void End();
 
 private:
-	Actor** m_actors;
+	DynamicArray<Actor*> m_actors;
+	DynamicArray<Actor*> m_actorsToBeRemoved;
 };

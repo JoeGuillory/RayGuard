@@ -55,11 +55,7 @@ void Game::AddScene(Scene* scene)
 {
     for (Scene* element : m_scenes)
     {
-        if (element = scene)
-        {
-            
-        }
-        else
+        if (element != scene)
         {
             m_scenes.Add(scene);
             if (m_currentscene == nullptr)

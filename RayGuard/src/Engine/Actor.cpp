@@ -1,6 +1,8 @@
 #include "Actor.h"
 #include "Transform2D.h"
 #include "Components\Component.h"
+
+
 Actor::Actor(const char* name)
 {
 	Transform = new Transform2D();
@@ -24,6 +26,7 @@ Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector
 	actor->Transform->Rotate(rotation);
 	if (parent != nullptr)
 		parent->AddChild(actor->Transform);
+	
 	//add add actor to scene one scenes are implimented
 	return actor;
 }
@@ -54,7 +57,7 @@ void Actor::Update(double deltaTime)
 		
 		element->Update(deltaTime);
 	}
-	RemoveComponentsToBeRemoved();
+	m_components.Remove(m_componentsToRemove);
 }
 
 void Actor::End()
@@ -76,7 +79,3 @@ void Actor::Enabled(bool value)
 		OnDisable();
 }
 
-void Actor::RemoveComponentsToBeRemoved()
-{
-	m_components.Remove(m_componentsToRemove);
-}

@@ -41,7 +41,7 @@ public:
 
 private:
 
-	void RemoveComponentsToBeRemoved();
+	
 	
 
 private:
