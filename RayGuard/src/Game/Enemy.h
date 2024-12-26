@@ -1,6 +1,6 @@
 #pragma once
 #include "Engine\Actor.h"
-class Enemy : Actor
+class Enemy : public Actor
 {
 public:
 	Enemy(const char* name);

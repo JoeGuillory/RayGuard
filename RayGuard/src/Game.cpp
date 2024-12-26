@@ -4,6 +4,8 @@
 #include "Engine\Actor.h"
 #include "Engine/Scene/Scene.h"
 #include "TextureManager.h"
+#include "Engine/Scene/TestScene.h"
+#include <chrono>
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
@@ -13,7 +15,7 @@ Game::Game()
     {
         m_currentscene = this->m_currentscene;
     }
-    
+    m_testscene = new TestScene();
     m_texturemanager = new TextureManager();
 }
 Game::~Game()
@@ -23,22 +25,30 @@ Game::~Game()
 
 void Game::Run()
 {
-
     InitWindow(800, 450, "raylib [core] example - basic window");
+
+    //Timing
+   
+    m_currentTime = std::chrono::high_resolution_clock::now();
+    
     
     m_texturemanager->LoadTextures();
-   
+    AddScene(m_testscene);
+
+    m_currentscene = GetScene(0);
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("Hi", 190, 200, 20, LIGHTGRAY);
        
-        
+        m_currentscene->Update(m_deltaTime.count());
       
         EndDrawing();
-    }
 
+        m_deltaTime = m_currentTime - m_lastTime;
+        m_lastTime = m_currentTime;
+    }
+    m_currentscene->End();
     CloseWindow();
 
 
@@ -55,17 +65,10 @@ void Game::SetCurrentScene(Scene* scene)
 
 void Game::AddScene(Scene* scene)
 {
-    for (Scene* element : m_scenes)
-    {
-        if (element != scene)
-        {
-            m_scenes.Add(scene);
-            if (m_currentscene == nullptr)
-            {
-                m_currentscene = scene;
-            }
-        }
-    }
+    if (!m_scenes.Contains(scene))
+        m_scenes.Add(scene);
+    if (m_currentscene == nullptr)
+        m_currentscene = scene;
     
 }
 
