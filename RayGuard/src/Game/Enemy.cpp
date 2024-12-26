@@ -21,7 +21,7 @@ void Enemy::Start()
 void Enemy::Update(double deltatime)
 {
 	Actor::Update(deltatime);
-
+	
 }
 
 void Enemy::End()
