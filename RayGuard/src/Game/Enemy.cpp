@@ -14,7 +14,8 @@ Enemy::~Enemy()
 void Enemy::Start()
 {
 	Actor::Start();
-	//Actor::AddComponent<Sprite>(new Sprite(this, 1));
+	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 1));
+	m_sprite->SetBothScaler(100);
 }
 
 void Enemy::Update(double deltatime)

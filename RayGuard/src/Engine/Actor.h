@@ -73,6 +73,7 @@ inline T* Actor::AddComponent(T* component)
 	else
 	{
 		m_components.Add(component);
+		return component;
 	}
 }
 

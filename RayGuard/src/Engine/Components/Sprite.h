@@ -2,7 +2,7 @@
 #include "Engine/Components/Component.h"
 #include "raylib.h"
 #include "Vector2.h"
-class Sprite : Component
+class Sprite : public Component
 {
 public:
 	Sprite(Actor* owner, int key);
@@ -17,10 +17,13 @@ public:
 	/// <param name=""></param>
 	/// <returns></returns>
 	RAYLIB_H::Vector2 ConvertVector(MathLibrary::Vector2 vector);
+	void SetWidthScaler(float size);
+	void SetHightScaler(float size);
+	void SetBothScaler(float size);
 
 private:
-	Actor* m_owner;
-	float m_scaler;
+	float m_scaleX;
+	float m_scaleY;
 	float m_startingRotation;
 	Texture2D m_texture;
 	Rectangle m_source;

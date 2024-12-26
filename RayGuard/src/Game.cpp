@@ -35,7 +35,7 @@ void Game::Run()
     m_texturemanager->LoadTextures();
     AddScene(m_testscene);
 
-    m_currentscene = GetScene(0);
+    SetCurrentScene(m_testscene);
     while (!WindowShouldClose())
     {
         BeginDrawing();

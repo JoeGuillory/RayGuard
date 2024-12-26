@@ -31,12 +31,12 @@ void Scene::Start()
 
 void Scene::Update(double deltaTime)
 {
-	for (Actor* element : m_actors)
+	for (int i = 0; i < m_actors.Length(); i++)
 	{
-		if (!element->Started())
-			element->Start();
+		if (!m_actors[i]->Started())
+			m_actors[i]->Start();
 
-		element->Update(deltaTime);
+		m_actors[i]->Update(deltaTime);
 		//Add Collider updating after impleminting colliders
 	}
 
