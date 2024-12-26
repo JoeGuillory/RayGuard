@@ -2,17 +2,19 @@
 #include "raylib.h"
 #include "Engine\Transform2D.h"
 #include "Engine\Actor.h"
-#include <iostream>
 #include "Engine/Scene/Scene.h"
 #include "TextureManager.h"
-#include "Game/Enemy.h"
 
-
-
+Scene* Game::m_currentscene = nullptr;
+DynamicArray<Scene*> Game::m_scenes;
 Game::Game()
 {
-    m_texturemanager = new TextureManager();
+    if (m_currentscene == nullptr)
+    {
+        m_currentscene = this->m_currentscene;
+    }
     
+    m_texturemanager = new TextureManager();
 }
 Game::~Game()
 {

@@ -28,7 +28,7 @@ public:
 	bool Enabled() { return m_enabled; }
 	void Enabled(bool value);
 	
-
+public:
 	template<typename T>
 	T* AddComponent(T* component);
 
@@ -69,7 +69,7 @@ inline T* Actor::AddComponent(T* component)
 {
 	Component* ptr = dynamic_cast<Component*>(component);
 	if (ptr == nullptr)
-		return false;
+		return nullptr;
 	else
 	{
 		m_components.Add(component);

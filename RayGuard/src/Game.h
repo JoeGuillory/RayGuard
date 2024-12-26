@@ -10,7 +10,7 @@ public:
 	~Game();
 	void Run();
 
-	 Scene* GetCurrentScene() { return m_currentscene; }
+	 static Scene* GetCurrentScene() { return m_currentscene; }
 	 void SetCurrentScene(Scene* scene);
 	
 	 void AddScene(Scene* scene);
@@ -19,9 +19,9 @@ public:
 	
 
 private:
-	DynamicArray<Scene*> m_scenes;
+	static DynamicArray<Scene*> m_scenes;
+	static Scene* m_currentscene;
 	TextureManager* m_texturemanager;
-	Scene* m_currentscene;
 
 
 };

@@ -14,7 +14,7 @@ Enemy::~Enemy()
 void Enemy::Start()
 {
 	Actor::Start();
-	AddComponent<Sprite>(new Sprite(this, 1));
+	//Actor::AddComponent<Sprite>(new Sprite(this, 1));
 }
 
 void Enemy::Update(double deltatime)

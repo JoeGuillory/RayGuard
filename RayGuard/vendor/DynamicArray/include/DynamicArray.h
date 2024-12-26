@@ -275,7 +275,7 @@ inline void DynamicArray<T>::Remove(const DynamicArray<T>& other)
 template<typename T>
 inline bool DynamicArray<T>::Contains(const T& value)
 {
-	for (int i = 0; i < m_length; i++;)
+	for (int i = 0; i < m_length; i++)
 	{
 		if (m_array[i] = value)
 		{

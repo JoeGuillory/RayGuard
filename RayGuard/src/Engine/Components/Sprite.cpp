@@ -3,7 +3,7 @@
 #include "TextureManager.h"
 #include "Engine/Actor.h"
 #include "Engine/Transform2D.h"
-#include "Game.h"
+
 
 Sprite::Sprite(Actor* owner, int key)
 {

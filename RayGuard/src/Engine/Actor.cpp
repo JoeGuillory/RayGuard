@@ -1,6 +1,8 @@
 #include "Actor.h"
 #include "Transform2D.h"
 #include "Components\Component.h"
+#include "Game.h"
+#include "Scene/Scene.h"
 
 
 Actor::Actor(const char* name)
@@ -26,7 +28,7 @@ Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector
 	actor->Transform->Rotate(rotation);
 	if (parent != nullptr)
 		parent->AddChild(actor->Transform);
-	
+	Game::GetCurrentScene()->AddActor(actor);
 	//add add actor to scene one scenes are implimented
 	return actor;
 }
