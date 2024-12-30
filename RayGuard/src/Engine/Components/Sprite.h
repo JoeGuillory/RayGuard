@@ -20,16 +20,22 @@ public:
 	void SetWidthScaler(float size);
 	void SetHightScaler(float size);
 	void SetBothScaler(float size);
-
+	float GetTextureWidth();
+	float GetTextureHeight();
+	void SetTextueHeight(float height);
+	void SetTextureWidth(float width);
 private:
 	float m_scaleX;
 	float m_scaleY;
 	float m_startingRotation;
+	float m_textureWidth;
+	float m_textureHeight;
 	Texture2D m_texture;
 	Rectangle m_source;
 	Rectangle m_destination;
 	MathLibrary::Vector2 m_origin;
 	MathLibrary::Vector2 m_offset;
 	MathLibrary::Vector2 m_vectorscaler;
+
 };
 

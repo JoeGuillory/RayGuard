@@ -16,6 +16,8 @@ void Enemy::Start()
 	Actor::Start();
 	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 1));
 	m_sprite->SetBothScaler(100);
+	m_sprite->SetTextureWidth(m_sprite->GetTextureWidth() / 3);
+
 }
 
 void Enemy::Update(double deltatime)

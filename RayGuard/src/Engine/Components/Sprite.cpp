@@ -12,7 +12,9 @@ Sprite::Sprite(Actor* owner, int key) : Component::Component(owner)
 	m_scaleY = 1;
 	m_startingRotation = 0;
 	m_texture = TextureManager::instance->GetTexture(key);
-	m_source = { 0,0,(float)m_texture.height,(float)m_texture.width};
+	m_textureWidth = (float)m_texture.width;
+	m_textureHeight = (float)m_texture.height;
+	m_source = { 0,0,m_textureWidth,m_textureHeight};
 }
 
 Sprite::~Sprite()
@@ -26,8 +28,9 @@ void Sprite::Start()
 
 void Sprite::Update(double deltaTime)
 {
+	m_source = { 0,0,m_textureWidth,m_textureHeight };
 	m_destination = { _owner->Transform->GlobalPosition().x,_owner->Transform->GlobalPosition().y,_owner->Transform->GlobalScale().x * m_scaleX,_owner->Transform->GlobalScale().y * m_scaleY};
-
+	
 	DrawTexturePro(m_texture, m_source, m_destination, ConvertVector(m_origin), _owner->Transform->GetToDegrees(), WHITE);
 }
 
@@ -55,4 +58,24 @@ void Sprite::SetBothScaler(float size)
 {
 	m_scaleX = size;
 	m_scaleY = size;
+}
+
+float Sprite::GetTextureWidth()
+{
+	return m_textureWidth;
+}
+
+float Sprite::GetTextureHeight()
+{
+	return m_textureHeight;
+}
+
+void Sprite::SetTextueHeight(float height)
+{
+	m_textureHeight = height;
+}
+
+void Sprite::SetTextureWidth(float width)
+{
+	m_textureWidth = width;
 }
