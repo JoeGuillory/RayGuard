@@ -42,7 +42,8 @@ void Game::Run()
         ClearBackground(RAYWHITE);
        
         m_currentscene->Update(m_deltaTime.count());
-      
+       
+
         EndDrawing();
 
         m_deltaTime = m_currentTime - m_lastTime;
