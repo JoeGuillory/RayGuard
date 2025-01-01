@@ -10,6 +10,7 @@ public:
 	void Start();
 	void Update(double deltaTime);
 	void End();
+	void SetTile(int tile);
 
 private:
 	int m_tile;

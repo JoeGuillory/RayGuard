@@ -10,5 +10,6 @@ public:
 
 	void Start();
 	void Update(double deltatime);
-
+	void DrawTiles();
+	
 };

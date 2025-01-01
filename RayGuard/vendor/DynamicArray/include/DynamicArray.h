@@ -277,7 +277,7 @@ inline bool DynamicArray<T>::Contains(const T& value)
 {
 	for (int i = 0; i < m_length; i++)
 	{
-		if (m_array[i] = value)
+		if (m_array[i] == value)
 		{
 			return true;
 		}

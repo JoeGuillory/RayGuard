@@ -15,6 +15,7 @@ Sprite::Sprite(Actor* owner, int key) : Component::Component(owner)
 	m_textureWidth = (float)m_texture.width;
 	m_textureHeight = (float)m_texture.height;
 	m_source = { 0,0,m_textureWidth,m_textureHeight};
+	m_offset = { 0,0 };
 }
 
 Sprite::~Sprite()
@@ -29,7 +30,7 @@ void Sprite::Start()
 void Sprite::Update(double deltaTime)
 {
 	m_source = { 0,0,m_textureWidth,m_textureHeight };
-	m_destination = { _owner->Transform->GlobalPosition().x,_owner->Transform->GlobalPosition().y,_owner->Transform->GlobalScale().x * m_scaleX,_owner->Transform->GlobalScale().y * m_scaleY};
+	m_destination = { _owner->Transform->GlobalPosition().x - m_offset.x,_owner->Transform->GlobalPosition().y - m_offset.y,_owner->Transform->GlobalScale().x * m_scaleX,_owner->Transform->GlobalScale().y * m_scaleY};
 	
 	DrawTexturePro(m_texture, m_source, m_destination, ConvertVector(m_origin), _owner->Transform->GetToDegrees(), WHITE);
 }
@@ -78,4 +79,9 @@ void Sprite::SetTextueHeight(float height)
 void Sprite::SetTextureWidth(float width)
 {
 	m_textureWidth = width;
+}
+
+void Sprite::SetOffset(MathLibrary::Vector2 offset)
+{
+	m_offset = offset;
 }

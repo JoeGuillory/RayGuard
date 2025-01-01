@@ -24,6 +24,7 @@ public:
 	float GetTextureHeight();
 	void SetTextueHeight(float height);
 	void SetTextureWidth(float width);
+	void SetOffset(MathLibrary::Vector2 offset);
 private:
 	float m_scaleX;
 	float m_scaleY;
@@ -36,6 +37,6 @@ private:
 	MathLibrary::Vector2 m_origin;
 	MathLibrary::Vector2 m_offset;
 	MathLibrary::Vector2 m_vectorscaler;
-
+	
 };
 

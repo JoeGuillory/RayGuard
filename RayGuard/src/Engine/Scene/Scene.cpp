@@ -49,3 +49,7 @@ void Scene::End()
 	for (Actor* element : m_actors)
 		element->End();
 }
+
+void Scene::DrawTiles()
+{
+}

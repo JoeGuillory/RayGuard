@@ -14,8 +14,9 @@ public:
 	virtual void Start();
 	virtual void Update(double deltaTime);
 	virtual void End();
+	virtual void DrawTiles();
 
-private:
+protected:
 	DynamicArray<Actor*> m_actors;
 	DynamicArray<Actor*> m_actorsToBeRemoved;
 };

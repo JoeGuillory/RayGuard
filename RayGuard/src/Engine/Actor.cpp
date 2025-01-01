@@ -3,6 +3,7 @@
 #include "Components\Component.h"
 #include "Game.h"
 #include "Scene/Scene.h"
+#include "DynamicArray.h"
 
 
 Actor::Actor(const char* name)
@@ -29,7 +30,6 @@ Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector
 	if (parent != nullptr)
 		parent->AddChild(actor->Transform);
 	Game::GetCurrentScene()->AddActor(actor);
-	//add add actor to scene one scenes are implimented
 	return actor;
 }
 
@@ -52,12 +52,12 @@ void Actor::Start()
 
 void Actor::Update(double deltaTime)
 {
-	for (Component* element : m_components)
+	for (int i = 0; i < m_components.Length(); i++)
 	{
-		if (!element->Started())
-			element->Start();
-		
-		element->Update(deltaTime);
+		if(!m_components[i]->Started())
+			m_components[i]->Start();
+
+		m_components[i]->Update(deltaTime);
 	}
 	m_components.Remove(m_componentsToRemove);
 }
