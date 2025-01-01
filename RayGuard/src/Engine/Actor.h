@@ -4,7 +4,7 @@
 #include "Components/Component.h"
 
 class Transform2D;
-
+class Collider;
 
 
 class Actor
@@ -22,7 +22,7 @@ public:
 	virtual void End();
 	virtual void OnEnable() {};
 	virtual void OnDisable() {};
-	
+	virtual void OnCollision(Actor* other);
 	//Getters and Setters
 	bool Started() { return m_started; }
 	bool Enabled() { return m_enabled; }
@@ -51,6 +51,7 @@ private:
 	DynamicArray<Component*> m_components;
 	DynamicArray<Component*> m_componentsToRemove;
 public:
+	Collider* m_Collider;
 	Transform2D* Transform;
 
 	/*Thing that need to be added

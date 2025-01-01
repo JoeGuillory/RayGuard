@@ -17,6 +17,9 @@ void IsClicked::Start()
 
 void IsClicked::Update(double deltaTime)
 {
+	float mousex = GetMousePosition().x;
+	float mousey = GetMousePosition().y;
+	
 	if (m_isClicked)
 	{
 		DrawCircleLines(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);

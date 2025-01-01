@@ -140,6 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Actor.cpp" />
+    <ClCompile Include="src\Engine\Collider\BoxCollider.cpp" />
+    <ClCompile Include="src\Engine\Collider\CircleCollider.cpp" />
+    <ClCompile Include="src\Engine\Collider\Collider.cpp" />
     <ClCompile Include="src\Engine\Components\Component.cpp" />
     <ClCompile Include="src\Engine\Components\IsClicked.cpp" />
     <ClCompile Include="src\Engine\Components\Sprite.cpp" />
@@ -154,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Actor.h" />
+    <ClInclude Include="src\Engine\Collider\BoxCollider.h" />
+    <ClInclude Include="src\Engine\Collider\CircleCollider.h" />
+    <ClInclude Include="src\Engine\Collider\Collider.h" />
     <ClInclude Include="src\Engine\Components\Component.h" />
     <ClInclude Include="src\Engine\Components\IsClicked.h" />
     <ClInclude Include="src\Engine\Components\Sprite.h" />

@@ -4,7 +4,8 @@
 #include "Game.h"
 #include "Scene/Scene.h"
 #include "DynamicArray.h"
-
+#include "Engine/Collider/Collider.h"
+#include "Engine/Collider/CircleCollider.h"
 
 Actor::Actor(const char* name)
 {
@@ -12,6 +13,7 @@ Actor::Actor(const char* name)
 	m_started = false;
 	m_enabled = true;
 	m_name = name;
+	
 	
 }
 
@@ -68,6 +70,10 @@ void Actor::End()
 	{
 		element->End();
 	}
+}
+
+void Actor::OnCollision(Actor* other)
+{
 }
 
 void Actor::Enabled(bool value)
