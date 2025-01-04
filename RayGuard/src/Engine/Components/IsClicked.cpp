@@ -21,15 +21,23 @@ void IsClicked::Update(double deltaTime)
 	
 	if (CheckMousePosition(GetMousePosition()))
 	{
+		m_inPosition = true;
 		DrawCircleLines(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
 	}
-	
+	else
+		m_inPosition = false;
+	if (m_inPosition && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+	{
+		m_isClicked = true;
+	}
+	if(m_isClicked)
+		DrawCircle(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
 }
 
 bool IsClicked::CheckMousePosition(Vector2 position)
 {
-	if (position.x > _owner->Transform->GlobalPosition().x - (_owner->GetScale() / 2.5) && position.x < _owner->Transform->GlobalPosition().x + (_owner->GetScale() / 2.5))
-		if (position.y > _owner->Transform->GlobalPosition().y - (_owner->GetScale() / 2.5) && position.y < _owner->Transform->GlobalPosition().y + (_owner->GetScale() / 2.5))
+	if (position.x > _owner->Transform->GlobalPosition().x - (_owner->GetScale() / 2) && position.x < _owner->Transform->GlobalPosition().x + (_owner->GetScale() / 2))
+		if (position.y > _owner->Transform->GlobalPosition().y - (_owner->GetScale() / 2) && position.y < _owner->Transform->GlobalPosition().y + (_owner->GetScale() / 2))
 			return true;
 
 	return false;

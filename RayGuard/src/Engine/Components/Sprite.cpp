@@ -16,6 +16,7 @@ Sprite::Sprite(Actor* owner, int key) : Component::Component(owner)
 	m_textureHeight = (float)m_texture.height;
 	m_source = { 0,0,m_textureWidth,m_textureHeight};
 	m_offset = { 0,0 };
+	
 }
 
 Sprite::~Sprite()

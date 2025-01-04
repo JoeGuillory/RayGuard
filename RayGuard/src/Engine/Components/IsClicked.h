@@ -12,6 +12,7 @@ public:
 
 private:
 	bool m_isClicked;
+	bool m_inPosition;
 	bool CheckMousePosition( Vector2 position);
 };
 

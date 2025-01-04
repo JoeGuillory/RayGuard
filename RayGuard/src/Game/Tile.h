@@ -1,5 +1,7 @@
 #pragma once
 #include "Engine/Actor.h"
+#include "raylib.h"
+class Sprite;
 
 class Tile : public Actor
 {
@@ -14,6 +16,7 @@ public:
 
 private:
 	int m_tile;
+	Sprite* m_sprite;
 
 
 };

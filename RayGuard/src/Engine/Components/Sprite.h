@@ -25,6 +25,7 @@ public:
 	void SetTextueHeight(float height);
 	void SetTextureWidth(float width);
 	void SetOffset(MathLibrary::Vector2 offset);
+	Rectangle GetDestination() { return m_destination; }
 private:
 	float m_scaleX;
 	float m_scaleY;
