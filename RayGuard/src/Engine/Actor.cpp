@@ -13,7 +13,7 @@ Actor::Actor(const char* name)
 	m_started = false;
 	m_enabled = true;
 	m_name = name;
-	
+	m_scale = 0;
 	
 }
 

@@ -7,6 +7,7 @@
 Tile::Tile(int tile) 
 {
 	m_tile = tile;
+	m_scale = 50.5;
 }
 
 Tile::~Tile()
@@ -21,7 +22,7 @@ void Tile::Start()
 	{
 		AddComponent<IsClicked>(new IsClicked(this));
 	}
-	m_sprite->SetBothScaler(50.5);
+	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetOffset({ 25,25 });
 	Transform->Translate({ 25,25 });
 }

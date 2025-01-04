@@ -27,7 +27,7 @@ public:
 	bool Started() { return m_started; }
 	bool Enabled() { return m_enabled; }
 	void Enabled(bool value);
-	
+	float GetScale() { return m_scale; }
 public:
 	template<typename T>
 	T* AddComponent(T* component);
@@ -50,9 +50,12 @@ private:
 	const char* m_name;
 	DynamicArray<Component*> m_components;
 	DynamicArray<Component*> m_componentsToRemove;
+protected:
+	float m_scale;
 public:
 	Collider* m_Collider;
 	Transform2D* Transform;
+
 
 	/*Thing that need to be added
 

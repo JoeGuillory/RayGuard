@@ -17,12 +17,20 @@ void IsClicked::Start()
 
 void IsClicked::Update(double deltaTime)
 {
-	float mousex = GetMousePosition().x;
-	float mousey = GetMousePosition().y;
 	
-	if (m_isClicked)
+	
+	if (CheckMousePosition(GetMousePosition()))
 	{
 		DrawCircleLines(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
 	}
+	
+}
 
+bool IsClicked::CheckMousePosition(Vector2 position)
+{
+	if (position.x > _owner->Transform->GlobalPosition().x - (_owner->GetScale() / 2.5) && position.x < _owner->Transform->GlobalPosition().x + (_owner->GetScale() / 2.5))
+		if (position.y > _owner->Transform->GlobalPosition().y - (_owner->GetScale() / 2.5) && position.y < _owner->Transform->GlobalPosition().y + (_owner->GetScale() / 2.5))
+			return true;
+
+	return false;
 }

@@ -4,7 +4,7 @@
 
 Enemy::Enemy(const char* name) : Actor::Actor(name)
 {
-	
+	m_scale = 15;
 }
 
 Enemy::~Enemy()
@@ -16,7 +16,7 @@ void Enemy::Start()
 {
 	Actor::Start();
 	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 1));
-	m_sprite->SetBothScaler(15);
+	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetTextureWidth(m_sprite->GetTextureWidth() / 3);
 	Transform->Translate({ 90,90 });
 
