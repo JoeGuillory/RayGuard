@@ -21,7 +21,7 @@ void Tile::Start()
 	m_sprite = AddComponent<Sprite>(new Sprite(this, m_tile));
 	if (m_tile == 2)
 	{
-		m_clicked = AddComponent<IsClicked>(new IsClicked(this));
+		AddComponent<IsClicked>(new IsClicked(this));
 	}
 	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetOffset({ 25,25 });
@@ -46,13 +46,5 @@ void Tile::SetTile(int tile)
 {
 	m_tile = tile;
 }
-void Tile::OnDisable()
-{
 
-	m_clicked->Enabled(false);
-}
 
-void Tile::OnEnable()
-{
-	m_clicked->Enabled(true);
-}
