@@ -19,6 +19,7 @@ public:
 	
 
 private:
+	Scene* m_mainmenu;
 	Scene* m_testscene;
 	static DynamicArray<Scene*> m_scenes;
 	static Scene* m_currentscene;

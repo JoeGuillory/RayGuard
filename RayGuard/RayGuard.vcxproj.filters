@@ -60,7 +60,7 @@
     <ClCompile Include="src\Engine\Collider\BoxCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\Tower.cpp">
+    <ClCompile Include="src\Engine\Scene\MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,7 +107,7 @@
     <ClInclude Include="src\Engine\Collider\BoxCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\Tower.h">
+    <ClInclude Include="src\Engine\Scene\MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
