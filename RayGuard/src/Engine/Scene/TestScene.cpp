@@ -2,7 +2,10 @@
 #include "Engine/Actor.h"
 #include "Game/Enemy.h"
 #include "Game/Tile.h"
+#include "Engine/Components/IsClicked.h"
 #include "Engine/Transform2D.h"
+#include "TextureManager.h"
+#include "Game.h"
 
 
 TestScene::TestScene()
@@ -17,7 +20,7 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
-
+	
 	
 }
 

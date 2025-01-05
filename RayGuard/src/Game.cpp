@@ -33,6 +33,7 @@ void Game::Run()
     
     
     m_texturemanager->LoadTextures();
+
     AddScene(m_testscene);
 
     SetCurrentScene(m_testscene);

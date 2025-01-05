@@ -15,7 +15,7 @@ Enemy::~Enemy()
 void Enemy::Start()
 {
 	Actor::Start();
-	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 1));
+	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 6));
 	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetTextureWidth(m_sprite->GetTextureWidth() / 3);
 	Transform->Translate({ 90,90 });

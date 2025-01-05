@@ -5,6 +5,7 @@
 IsClicked::IsClicked(Actor* owner) : Component::Component(owner)
 {
 	m_isClicked = false;
+	m_placed = false;
 }
 
 IsClicked::~IsClicked()
@@ -17,21 +18,29 @@ void IsClicked::Start()
 
 void IsClicked::Update(double deltaTime)
 {
-	
-	
-	if (CheckMousePosition(GetMousePosition()))
-	{
-		m_inPosition = true;
-		DrawCircleLines(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
-	}
-	else
+
+		if (CheckMousePosition(GetMousePosition()))
+		{
+			m_inPosition = true;
+			DrawCircleLines(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
+		}
+		else
 		m_inPosition = false;
-	if (m_inPosition && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-	{
-		m_isClicked = true;
-	}
-	if(m_isClicked)
-		DrawCircle(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
+		if (m_inPosition && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+		{
+			m_isClicked = true;
+		}
+		if (m_isClicked && !m_placed)
+		{
+			DrawCircle(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
+			m_placed = true;
+		}
+	
+}
+
+void IsClicked::OnDisable()
+{
+
 }
 
 bool IsClicked::CheckMousePosition(Vector2 position)
