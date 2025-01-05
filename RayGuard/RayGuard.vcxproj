@@ -146,6 +146,7 @@
     <ClCompile Include="src\Engine\Components\Component.cpp" />
     <ClCompile Include="src\Engine\Components\IsClicked.cpp" />
     <ClCompile Include="src\Engine\Components\Sprite.cpp" />
+    <ClCompile Include="src\Engine\Scene\MainMenu.cpp" />
     <ClCompile Include="src\Engine\Scene\Scene.cpp" />
     <ClCompile Include="src\Engine\Scene\TestScene.cpp" />
     <ClCompile Include="src\Engine\Transform2D.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="src\Engine\Components\Component.h" />
     <ClInclude Include="src\Engine\Components\IsClicked.h" />
     <ClInclude Include="src\Engine\Components\Sprite.h" />
+    <ClInclude Include="src\Engine\Scene\MainMenu.h" />
     <ClInclude Include="src\Engine\Scene\Scene.h" />
     <ClInclude Include="src\Engine\Scene\TestScene.h" />
     <ClInclude Include="src\Engine\Transform2D.h" />

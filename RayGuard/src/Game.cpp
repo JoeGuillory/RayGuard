@@ -5,6 +5,7 @@
 #include "Engine/Scene/Scene.h"
 #include "TextureManager.h"
 #include "Engine/Scene/TestScene.h"
+#include "Engine/Scene/MainMenu.h"
 #include <chrono>
 
 Scene* Game::m_currentscene = nullptr;
@@ -15,6 +16,7 @@ Game::Game()
     {
         m_currentscene = this->m_currentscene;
     }
+    m_mainmenu = new MainMenu();
     m_testscene = new TestScene();
     m_texturemanager = new TextureManager();
 }
@@ -33,9 +35,10 @@ void Game::Run()
     
     
     m_texturemanager->LoadTextures();
+    AddScene(m_mainmenu);
     AddScene(m_testscene);
 
-    SetCurrentScene(m_testscene);
+    SetCurrentScene(m_mainmenu);
     while (!WindowShouldClose())
     {
         BeginDrawing();

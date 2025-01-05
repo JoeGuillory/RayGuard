@@ -13,10 +13,12 @@ public:
 	void Update(double deltaTime);
 	void End();
 	void SetTile(int tile);
-
+	void SetSize(float size) { m_scale = size; }
+	
 private:
 	int m_tile;
 	Sprite* m_sprite;
+	
 
 
 };
