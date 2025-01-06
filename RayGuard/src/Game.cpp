@@ -38,7 +38,7 @@ void Game::Run()
     AddScene(m_mainmenu);
     AddScene(m_testscene);
 
-    SetCurrentScene(m_mainmenu);
+    SetCurrentScene(m_testscene);
     while (!WindowShouldClose())
     {
         BeginDrawing();
