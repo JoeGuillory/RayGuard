@@ -3,7 +3,7 @@
 #include "Game/Enemy.h"
 #include "Game/Tile.h"
 #include "Engine/Transform2D.h"
-
+#include "Game.h"
 
 TestScene::TestScene()
 {
@@ -17,13 +17,14 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
-
+	Game::GetCurrentScene();
 	
 }
 
 void TestScene::Update(double deltatime)
 {
 	Scene::Update(deltatime);
+
 	
 }
 
