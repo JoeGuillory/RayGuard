@@ -3,7 +3,7 @@
 class Enemy : public Actor
 {
 public:
-	Enemy(const char* name);
+	Enemy();
 	~Enemy();
 	void Start();
 	void Update(double deltatime);

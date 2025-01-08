@@ -31,4 +31,5 @@ bool Collider::CheckCollisionBox(BoxCollider* collider)
 
 void Collider::Draw()
 {
+	
 }

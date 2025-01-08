@@ -32,7 +32,7 @@ void Game::Run()
     //Timing
    
     m_currentTime = std::chrono::high_resolution_clock::now();
-    
+    m_lastTime = m_currentTime;
     
     m_texturemanager->LoadTextures();
     AddScene(m_mainmenu);
@@ -43,7 +43,7 @@ void Game::Run()
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-       
+        m_currentTime = std::chrono::high_resolution_clock::now();
         m_currentscene->Update(m_deltaTime.count());
        
 

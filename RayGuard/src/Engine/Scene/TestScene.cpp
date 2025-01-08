@@ -21,6 +21,7 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
+	Actor::Instantiate(new Enemy());
 	
 	
 }
