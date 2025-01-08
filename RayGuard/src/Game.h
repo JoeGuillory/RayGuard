@@ -27,6 +27,6 @@ private:
 	std::chrono::time_point<std::chrono::steady_clock> m_currentTime;
 	std::chrono::time_point<std::chrono::steady_clock> m_lastTime;
 	
-	std::chrono::duration<double> m_deltaTime;
+	double m_deltaTime;
 
 };

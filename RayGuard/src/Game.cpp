@@ -7,6 +7,7 @@
 #include "Engine/Scene/TestScene.h"
 #include "Engine/Scene/MainMenu.h"
 #include <chrono>
+#include <iostream>
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
@@ -28,12 +29,10 @@ Game::~Game()
 void Game::Run()
 {
     InitWindow(800, 450, "raylib [core] example - basic window");
-
+    SetTargetFPS(140);
     //Timing
    
-    m_currentTime = std::chrono::high_resolution_clock::now();
-    m_lastTime = m_currentTime;
-    
+
     m_texturemanager->LoadTextures();
     AddScene(m_mainmenu);
     AddScene(m_testscene);
@@ -44,13 +43,14 @@ void Game::Run()
         BeginDrawing();
         ClearBackground(RAYWHITE);
         m_currentTime = std::chrono::high_resolution_clock::now();
-        m_currentscene->Update(m_deltaTime.count());
+        m_currentscene->Update(m_deltaTime);
        
 
         EndDrawing();
 
-        m_deltaTime = m_currentTime - m_lastTime;
-        m_lastTime = m_currentTime;
+        m_lastTime = std::chrono::high_resolution_clock::now();
+        m_deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(m_lastTime - m_currentTime).count() / 1000.0f;
+        
     }
     m_currentscene->End();
     CloseWindow();
