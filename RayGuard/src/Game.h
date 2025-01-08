@@ -11,12 +11,12 @@ public:
 	void Run();
 
 	 static Scene* GetCurrentScene() { return m_currentscene; }
-	 void SetCurrentScene(Scene* scene);
+	 static void SetCurrentScene(Scene* scene);
 	
 	 void AddScene(Scene* scene);
 	 bool RemoveScene(Scene* scene);
-	 Scene* GetScene(int index);
-	
+	 static Scene* GetScene(int index);
+	 static Game* instance;
 
 private:
 	Scene* m_mainmenu;

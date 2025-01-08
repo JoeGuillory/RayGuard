@@ -15,11 +15,19 @@ Scene* Game::m_currentscene = nullptr;
 // Dynamic array to hold all of the scenes
 DynamicArray<Scene*> Game::m_scenes;
 
+Game* Game::instance = nullptr;
 
 
 
 Game::Game()
 {
+    
+    
+        if (instance == nullptr)  
+        {
+            instance = this;
+        }
+    
 
     if (m_currentscene == nullptr)
     {
