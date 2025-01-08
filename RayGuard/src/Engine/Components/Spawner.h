@@ -3,7 +3,7 @@
 class Spawner : public Component
 {
 public:
-	Spawner();
+	Spawner(Actor* owner);
 	~Spawner();
 	
 	void Start();

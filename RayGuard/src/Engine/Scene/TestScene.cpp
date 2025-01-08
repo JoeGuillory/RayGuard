@@ -8,6 +8,7 @@
 #include "Game.h"
 #include "Game/Tower.h"
 #include "Engine/Components/Spawner.h"
+#include "Game/SpawnManager.h"
 
 
 TestScene::TestScene()
@@ -22,6 +23,7 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
+	Actor::Instantiate(new SpawnManager());
 	
 	
 	
@@ -30,7 +32,6 @@ void TestScene::Start()
 void TestScene::Update(double deltatime)
 {
 	Scene::Update(deltatime);
-	
 }
 
 void TestScene::DrawTiles()

@@ -23,6 +23,7 @@ private:
 	IsClicked* m_clicked;
 	bool m_towerMade;
 	int m_tileNumber;
+	float time;
 
 
 };

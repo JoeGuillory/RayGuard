@@ -45,7 +45,7 @@ void Tile::Update(double deltaTime)
 	DrawRectangleLinesEx(m_sprite->GetDestination(), 1 , BLACK);
 	
 	
-
+	
 	//DrawText(std::to_string(m_tileNumber).c_str(), Transform->GlobalPosition().x, Transform->GlobalPosition().y, 10, BLACK);
 }
 
