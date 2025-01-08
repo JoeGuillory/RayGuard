@@ -21,7 +21,10 @@ void TextureManager::LoadTextures()
 	Texture2D arrow = LoadTexture("res/Images/arrow.png");
 	Texture2D bettledown = LoadTexture("res/Images/BettleDown.png");
 	Texture2D bettleleft = LoadTexture("res/Images/BettleLeft.png");
-
+	Texture2D esckey = LoadTexture("res/Images/esckey.png");
+	Texture2D enterkey = LoadTexture("res/Images/enterkey.png");
+	Texture2D othergrass = LoadTexture("res/Images/OtherGrass.png");
+	Texture2D placetile = LoadTexture("res/Images/PlaceTile.png");
 
 	m_texturemanager.insert(std::pair<int, Texture2D>(1, tower));
 	m_texturemanager.insert(std::pair<int, Texture2D>(2, grasstile));
@@ -29,6 +32,10 @@ void TextureManager::LoadTextures()
 	m_texturemanager.insert(std::pair<int, Texture2D>(4, arrow));
 	m_texturemanager.insert(std::pair<int, Texture2D>(5, bettledown));
 	m_texturemanager.insert(std::pair<int, Texture2D>(6, bettleleft));
+	m_texturemanager.insert(std::pair<int, Texture2D>(7, esckey));
+	m_texturemanager.insert(std::pair<int, Texture2D>(8, enterkey));
+	m_texturemanager.insert(std::pair<int, Texture2D>(9, othergrass));
+	m_texturemanager.insert(std::pair<int, Texture2D>(10,placetile));
 
 }
 
