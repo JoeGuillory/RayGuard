@@ -15,7 +15,7 @@ TextureManager::~TextureManager()
 void TextureManager::LoadTextures()
 {
 	
-	Texture2D tower = LoadTexture("res/Images/Tower 01.png");
+	Texture2D tower = LoadTexture("res/Images/Tower.png");
 	Texture2D grasstile = LoadTexture("res/Images/GrassTile.png");
 	Texture2D pathtile = LoadTexture("res/Images/PathTile.png");
 	Texture2D arrow = LoadTexture("res/Images/arrow.png");

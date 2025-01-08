@@ -62,6 +62,7 @@ void Actor::Update(double deltaTime)
 		m_components[i]->Update(deltaTime);
 	}
 	m_components.Remove(m_componentsToRemove);
+	
 }
 
 void Actor::End()

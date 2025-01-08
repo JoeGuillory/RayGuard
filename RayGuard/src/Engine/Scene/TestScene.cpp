@@ -6,6 +6,7 @@
 #include "Engine/Transform2D.h"
 #include "TextureManager.h"
 #include "Game.h"
+#include "Game/Tower.h"
 
 
 TestScene::TestScene()
@@ -20,6 +21,7 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
+	Actor::Instantiate(new Enemy());
 	
 	
 }

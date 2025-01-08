@@ -10,6 +10,8 @@ public:
 	void Start();
 	void Update(double deltaTime);
 	void OnDisable();
+	bool IfPlaced() { return m_placed; }
+	bool IfClicked() { return m_isClicked; }
 private:
 	bool m_isClicked;
 	bool m_inPosition;
