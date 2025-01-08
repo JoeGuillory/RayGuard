@@ -5,11 +5,13 @@
 #include "Engine/Transform2D.h"
 #include "Engine/Components/IsClicked.h"
 #include "Game/Tower.h"
+#include <string>
 Tile::Tile(int tile) 
 {
 	m_tile = tile;
 	m_scale = 50.5;
 	m_towerMade = false;
+
 }
 
 Tile::~Tile()
@@ -41,6 +43,10 @@ void Tile::Update(double deltaTime)
 				m_towerMade = true;
 			}
 	DrawRectangleLinesEx(m_sprite->GetDestination(), 1 , BLACK);
+	
+	
+
+	//DrawText(std::to_string(m_tileNumber).c_str(), Transform->GlobalPosition().x, Transform->GlobalPosition().y, 10, BLACK);
 }
 
 void Tile::End()

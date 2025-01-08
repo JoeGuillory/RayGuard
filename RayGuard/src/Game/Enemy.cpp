@@ -19,9 +19,8 @@ void Enemy::Start()
 	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 6));
 	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetOffset({ m_scale / 2,m_scale / 2 });
-	Transform->Translate({ 90,90 });
 	m_Collider = new CircleCollider(this, 25);
-	dynamic_cast<CircleCollider*>(m_Collider)->EnableDraw(false);
+	dynamic_cast<CircleCollider*>(m_Collider)->EnableDraw(true);
 	
 }
 
