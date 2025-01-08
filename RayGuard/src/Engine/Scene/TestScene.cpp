@@ -6,6 +6,7 @@
 #include "Engine/Transform2D.h"
 #include "TextureManager.h"
 #include "Game.h"
+#include "Game/Tower.h"
 
 
 TestScene::TestScene()

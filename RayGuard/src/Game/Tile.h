@@ -2,6 +2,7 @@
 #include "Engine/Actor.h"
 #include "raylib.h"
 class Sprite;
+class IsClicked;
 
 class Tile : public Actor
 {
@@ -18,7 +19,8 @@ public:
 private:
 	int m_tile;
 	Sprite* m_sprite;
-	
+	IsClicked* m_clicked;
+	bool m_towerMade;
 
 
 };

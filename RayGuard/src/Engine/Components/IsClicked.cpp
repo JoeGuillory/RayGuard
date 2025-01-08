@@ -32,7 +32,6 @@ void IsClicked::Update(double deltaTime)
 		}
 		if (m_isClicked && !m_placed)
 		{
-			DrawCircle(_owner->Transform->GlobalPosition().x, _owner->Transform->GlobalPosition().y, 10, BLACK);
 			m_placed = true;
 		}
 	
