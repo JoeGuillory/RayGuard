@@ -9,6 +9,7 @@
 #include "Game/Tower.h"
 #include "Engine/Components/Spawner.h"
 #include "Game/SpawnManager.h"
+#include "Bullet.h"
 
 
 TestScene::TestScene()
@@ -24,7 +25,7 @@ void TestScene::Start()
 	Scene::Start();
 	DrawTiles();
 	Actor::Instantiate(new SpawnManager());
-	
+	Actor::Instantiate(new Bullet());
 	
 	
 }
