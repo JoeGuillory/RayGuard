@@ -31,6 +31,12 @@ void Bullet::Update(double deltaTime)
 	dynamic_cast<CircleCollider*>(m_Collider)->Draw();
 	Transform->Translate(Transform->GetForward() * deltaTime * 2000);
 	
+	if (Transform->LocalPosition().x > GetScreenWidth() ||
+		(Transform->LocalPosition().y > GetScreenHeight()))
+	{
+		Destroy(Actor);
+	}
+	
 
 }
 
