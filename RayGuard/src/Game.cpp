@@ -6,6 +6,7 @@
 #include "TextureManager.h"
 #include "Engine/Scene/TestScene.h"
 #include "Engine/Scene/MainMenu.h"
+#include "Engine/Scene/LevelOne.h"
 #include <chrono>
 #include <iostream>
 
@@ -19,7 +20,9 @@ Game::Game()
     }
     m_mainmenu = new MainMenu();
     m_testscene = new TestScene();
+    m_levelOne = new LevelOne();
     m_texturemanager = new TextureManager();
+
 }
 Game::~Game()
 {
@@ -35,6 +38,7 @@ void Game::Run()
 
     m_texturemanager->LoadTextures();
     AddScene(m_mainmenu);
+    AddScene(m_levelOne);
     AddScene(m_testscene);
 
     SetCurrentScene(m_mainmenu);
