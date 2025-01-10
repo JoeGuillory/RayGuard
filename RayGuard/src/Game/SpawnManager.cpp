@@ -16,7 +16,7 @@ void SpawnManager::Start()
 {
 	Actor::Start();
 	AddComponent<Spawner>(new Spawner(this));
-	Transform->Translate(600, 200);
+	
 
 }
 

@@ -23,7 +23,7 @@ void LevelOne::Start()
 {
 	Scene::Start();
 	DrawTiles();
-	Actor::Instantiate(new SpawnManager());
+	Actor::Instantiate(new SpawnManager(),nullptr,{850,225});
 }
 
 void LevelOne::Update(double deltaTime)

@@ -37,7 +37,6 @@ void Scene::Update(double deltaTime)
 			m_actors[i]->Start();
 
 		m_actors[i]->Update(deltaTime);
-		//Add Collider updating after impleminting colliders
 	}
 
 

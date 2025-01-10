@@ -39,7 +39,7 @@ void Tile::Update(double deltaTime)
 		if (m_clicked->IfClicked() && m_clicked->IfPlaced())
 			if (!m_towerMade)
 			{
-				Actor::Instantiate(new Tower(), nullptr, Transform->GlobalPosition() - MathLibrary::Vector2(16.5,20));
+				Actor::Instantiate(new Tower(), nullptr, Transform->GlobalPosition());
 				m_towerMade = true;
 			}
 	DrawRectangleLinesEx(m_sprite->GetDestination(), 1 , BLACK);
