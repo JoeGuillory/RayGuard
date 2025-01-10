@@ -11,6 +11,7 @@ public:
 	void Start();
 	void Update(double deltaTime);
 	void End();
+	void OnCollision(Actor* other);
 private:
 	Sprite* m_sprite;
 };

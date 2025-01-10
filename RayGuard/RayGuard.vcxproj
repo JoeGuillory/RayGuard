@@ -147,6 +147,7 @@
     <ClCompile Include="src\Engine\Components\IsClicked.cpp" />
     <ClCompile Include="src\Engine\Components\Spawner.cpp" />
     <ClCompile Include="src\Engine\Components\Sprite.cpp" />
+    <ClCompile Include="src\Engine\Scene\LevelOne.cpp" />
     <ClCompile Include="src\Engine\Scene\MainMenu.cpp" />
     <ClCompile Include="src\Engine\Scene\Scene.cpp" />
     <ClCompile Include="src\Engine\Scene\TestScene.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="src\Engine\Components\IsClicked.h" />
     <ClInclude Include="src\Engine\Components\Spawner.h" />
     <ClInclude Include="src\Engine\Components\Sprite.h" />
+    <ClInclude Include="src\Engine\Scene\LevelOne.h" />
     <ClInclude Include="src\Engine\Scene\MainMenu.h" />
     <ClInclude Include="src\Engine\Scene\Scene.h" />
     <ClInclude Include="src\Engine\Scene\TestScene.h" />
