@@ -28,7 +28,7 @@ Actor::~Actor()
 Actor* Actor::Instantiate(Actor* actor, Transform2D* parent, MathLibrary::Vector2 position, float rotation)
 {
 	actor->Transform->LocalPosition(position);
-	actor->Transform->Rotate(rotation);
+	actor->Transform->SetAngle(rotation);
 	if (parent != nullptr)
 		parent->AddChild(actor->Transform);
 	Game::GetCurrentScene()->AddActor(actor);

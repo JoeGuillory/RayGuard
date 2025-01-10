@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include "Engine/Actor.h"
-
+#include "Engine/Collider/Collider.h"
 
 Scene::Scene()
 {
@@ -37,6 +37,26 @@ void Scene::Update(double deltaTime)
 			m_actors[i]->Start();
 
 		m_actors[i]->Update(deltaTime);
+
+	}
+
+	for (int row = 0; row < m_actors.Length(); row++)
+	{
+		for (int column = row; column < m_actors.Length(); column++)
+		{
+			if (row == column)
+				continue;
+			if (m_actors[row]->m_Collider != nullptr && m_actors[column]->m_Collider != nullptr)
+			{
+				if (m_actors[row]->m_Collider->CheckCollision(m_actors[column]))
+				{
+					m_actors[row]->OnCollision(m_actors[column]);
+					m_actors[column]->OnCollision(m_actors[row]);
+
+				}
+			}
+
+		}
 	}
 
 
