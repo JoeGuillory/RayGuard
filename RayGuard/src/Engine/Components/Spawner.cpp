@@ -6,9 +6,11 @@
 #include "raylib.h"
 #include <string>
 #include <iostream>
-Spawner::Spawner(Actor* owner) : Component::Component(owner)
+Spawner::Spawner(Actor* owner, int spawncount) : Component::Component(owner)
 {
 	m_time = 0;
+	m_spawncount = spawncount;
+	m_spawned = 0;
 }
 
 void Spawner::Start()
@@ -20,14 +22,16 @@ void Spawner::Start()
 void Spawner::Update(double deltaTime)
 {
 	m_time += 1.000 * deltaTime;
-	//std::cout << m_time << std::endl;
+	
 	if (m_time > 5)
 	{
-		Actor::Instantiate(new Enemy(), nullptr, _owner->Transform->GlobalPosition());
+		if (m_spawned < m_spawncount)
+		{
+			Actor::Instantiate(new Enemy(), nullptr, _owner->Transform->GlobalPosition());
+			m_spawned++;
+		}
 		
 		m_time = 0;
-		
-
 	}
 }
 

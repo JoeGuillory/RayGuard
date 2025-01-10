@@ -6,6 +6,8 @@
 
 SpawnManager::SpawnManager()
 {
+	m_round = 1;
+	m_roundSpawnCount = 10;
 }
 
 SpawnManager::~SpawnManager()
@@ -15,7 +17,7 @@ SpawnManager::~SpawnManager()
 void SpawnManager::Start()
 {
 	Actor::Start();
-	AddComponent<Spawner>(new Spawner(this));
+	AddComponent<Spawner>(new Spawner(this,m_roundSpawnCount));
 	
 
 }
@@ -23,7 +25,6 @@ void SpawnManager::Start()
 void SpawnManager::Update(double deltaTime)
 {
 	Actor::Update(deltaTime);
-	DrawCircleLines(Transform->GlobalPosition().x, Transform->GlobalPosition().y, 20, BLACK);
 	
 }
 
