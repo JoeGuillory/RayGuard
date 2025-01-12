@@ -9,6 +9,7 @@
 #include "Game/Tower.h"
 #include "Engine/Components/Spawner.h"
 #include "Game/SpawnManager.h"
+#include <string>
 
 
 LevelOne::LevelOne()
@@ -23,13 +24,16 @@ void LevelOne::Start()
 {
 	Scene::Start();
 	DrawTiles();
-	Actor::Instantiate(new SpawnManager(),nullptr,{850,225});
+	m_spawnmanager = Actor::Instantiate(new SpawnManager(),nullptr,{850,225});
+	strncpy_s(m_round, "Round: ", 7);
+	strncat_s(m_round, std::to_string(dynamic_cast<SpawnManager*>(m_spawnmanager)->GetRound()).c_str(), 3);
+	
 }
 
 void LevelOne::Update(double deltaTime)
 {
 	Scene::Update(deltaTime);
-	
+	DrawText( m_round , GetScreenWidth() / 3, 10, 60, BLACK);
 
 }
 

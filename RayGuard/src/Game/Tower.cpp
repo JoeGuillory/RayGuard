@@ -26,7 +26,7 @@ void Tower::Start()
 {
 	Actor::Start();
 	m_sprite = AddComponent<Sprite>(new Sprite(this, 1));
-	m_shoot = AddComponent<Shoot>(new Shoot(this, 6));
+	m_shoot = AddComponent<Shoot>(new Shoot(this, 10));
 	m_sprite->SetBothScaler(35);
 	m_sprite->SetOffset({ 35 / 2,35 / 2 });
 	m_Collider = new CircleCollider(this, 150);

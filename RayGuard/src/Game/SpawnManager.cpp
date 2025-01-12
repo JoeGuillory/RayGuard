@@ -17,7 +17,7 @@ SpawnManager::~SpawnManager()
 void SpawnManager::Start()
 {
 	Actor::Start();
-	AddComponent<Spawner>(new Spawner(this,m_roundSpawnCount));
+	m_spawner = AddComponent<Spawner>(new Spawner(this,m_roundSpawnCount));
 	
 
 }
@@ -25,6 +25,7 @@ void SpawnManager::Start()
 void SpawnManager::Update(double deltaTime)
 {
 	Actor::Update(deltaTime);
+	
 	
 }
 
