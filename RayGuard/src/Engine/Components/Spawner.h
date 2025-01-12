@@ -11,6 +11,8 @@ public:
 	void End();
 
 	bool Finished() { return m_finishedSpawning; }
+	void SetSpawnCount(int count) { m_spawncount = count; }
+	void Restart();
 private:
 	double m_time;
 	int m_spawncount;

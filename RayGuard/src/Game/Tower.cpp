@@ -49,10 +49,9 @@ void Tower::OnCollision(Actor* other)
 {
 	if (dynamic_cast<Enemy*>(other) != nullptr)
 	{
-
+		
 
 		float enemyangle = atan2(other->Transform->GlobalPosition().y - Transform->GlobalPosition().y, other->Transform->GlobalPosition().x - Transform->GlobalPosition().x) * -1;
-		std::cout << enemyangle << std::endl;
 		m_shoot->SetBulletAngle(enemyangle);
 		m_shoot->EnableShoot(true);
 		

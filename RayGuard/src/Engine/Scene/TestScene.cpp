@@ -24,7 +24,7 @@ void TestScene::Start()
 {
 	Scene::Start();
 	DrawTiles();
-	Actor::Instantiate(new SpawnManager());
+	
 	Actor::Instantiate(new Bullet());
 	
 	

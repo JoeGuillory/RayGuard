@@ -4,7 +4,7 @@ class Spawner;
 class SpawnManager : public Actor
 {
 public:
-	SpawnManager();
+	SpawnManager(int maxrounds);
 	~SpawnManager();
 
 	void Start();
@@ -12,11 +12,15 @@ public:
 	void End();
 
 	int GetRound() { return m_round; }
+	bool IsRoundFinished();
+	bool IsCompleted() { return m_allCompleted; }
 
 private:
+	int m_maxRounds;
 	int m_round;
 	int m_roundSpawnCount;
+	bool m_allCompleted;
 	Spawner* m_spawner;
-
+	
 
 };

@@ -21,20 +21,32 @@ void Spawner::Start()
 
 void Spawner::Update(double deltaTime)
 {
-	m_time += 1.000 * deltaTime;
-	
-	if (m_time > 5)
+	if (m_spawned != m_spawncount)
 	{
-		if (m_spawned < m_spawncount)
+		m_finishedSpawning = false;
+		m_time += 1.000 * deltaTime;
+		if (m_time > 5)
 		{
-			Actor::Instantiate(new Enemy(), nullptr, _owner->Transform->GlobalPosition());
-			m_spawned++;
+			if (m_spawned < m_spawncount)
+			{
+				Actor::Instantiate(new Enemy(), nullptr, _owner->Transform->GlobalPosition());
+				m_spawned++;
+			}
+			m_time = 0;
 		}
-		
-		m_time = 0;
 	}
+	else if (m_spawned == m_spawncount)
+	{
+		m_finishedSpawning = true;
+	}
+
 }
 
 void Spawner::End()
 {
+}
+
+void Spawner::Restart()
+{
+	m_spawned = 0;
 }
