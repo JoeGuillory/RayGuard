@@ -45,11 +45,10 @@ void Tile::Update(double deltaTime)
 				m_towerMade = true;
 				GameManager::instance->SubstractMoney(GameManager::instance->GetTowerCost());
 			}
+	if(m_clicked != nullptr)
+		if(m_clicked->IfClicked() && m_clicked->IfPlaced() && !m_towerMade)
+			m_clicked->Reset();
 	DrawRectangleLinesEx(m_sprite->GetDestination(), 1 , BLACK);
-	
-	
-	
-	//DrawText(std::to_string(m_tileNumber).c_str(), Transform->GlobalPosition().x, Transform->GlobalPosition().y, 10, BLACK);
 }
 
 void Tile::End()

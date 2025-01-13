@@ -12,6 +12,7 @@ public:
 	void OnDisable();
 	bool IfPlaced() { return m_placed; }
 	bool IfClicked() { return m_isClicked; }
+	void Reset();
 private:
 	bool m_isClicked;
 	bool m_inPosition;

@@ -42,6 +42,12 @@ void IsClicked::OnDisable()
 
 }
 
+void IsClicked::Reset()
+{
+	m_isClicked = false;
+	m_placed = false;
+}
+
 bool IsClicked::CheckMousePosition(Vector2 position)
 {
 	if (position.x > _owner->Transform->GlobalPosition().x - (_owner->GetScale() / 2) && position.x < _owner->Transform->GlobalPosition().x + (_owner->GetScale() / 2))
