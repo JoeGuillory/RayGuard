@@ -2,10 +2,15 @@
 #include "Engine/Components/Sprite.h"
 #include "Engine/Transform2D.h"
 #include "Engine/Collider/CircleCollider.h"
+#include "Bullet.h"
+#include "Game.h"
+#include "Engine/Scene/Scene.h"
+#include <iostream>
 
 Enemy::Enemy()
 {
 	m_scale = 60;
+	health = 100.0f;
 }
 
 Enemy::~Enemy()
@@ -28,7 +33,19 @@ void Enemy::Update(double deltatime)
 {
 	Actor::Update(deltatime);
 	dynamic_cast<CircleCollider*>(m_Collider)->Draw();
-	Transform->Translate(Transform->GetForward() * deltatime * -20);
+	Transform->Translate(Transform->GetForward() * deltatime * -200);
+	
+}
+
+
+void Enemy::OnCollision(Actor* other)
+{
+	if (dynamic_cast<Bullet*>(other) != nullptr)
+	{
+		std::cout << "Enemy hit: " << this << std::endl;
+		Game::instance->GetCurrentScene()->RemoveActor(this);
+		
+	}
 }
 
 void Enemy::End()

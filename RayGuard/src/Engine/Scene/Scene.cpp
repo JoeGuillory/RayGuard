@@ -59,8 +59,13 @@ void Scene::Update(double deltaTime)
 		}
 	}
 
-
 	m_actors.Remove(m_actorsToBeRemoved);
+	for (int i = 0; i < m_actorsToBeRemoved.Length(); i++)
+	{
+		delete m_actorsToBeRemoved[i];
+		m_actorsToBeRemoved[i] = nullptr;
+	}
+	m_actorsToBeRemoved.Clear();
 }
 
 void Scene::End()
