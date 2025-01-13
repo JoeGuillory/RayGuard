@@ -16,13 +16,4 @@ public:
 private:
 	  std::map<int, Texture2D> m_texturemanager;
 
-
-	
-
-
-
-
-
-
-
 };

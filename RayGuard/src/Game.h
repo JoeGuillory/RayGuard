@@ -5,6 +5,7 @@
 class TextureManager;
 class Scene;
 class GameManager;
+
 class Game
 {
 public:
@@ -19,7 +20,7 @@ public:
 	 bool RemoveScene(Scene* scene);
 	 static Scene* GetScene(int index);
 	 static Game* instance;
-	 
+	 GameManager* m_instance;
 
 private:
 	Scene* m_mainmenu;

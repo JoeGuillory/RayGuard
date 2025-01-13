@@ -6,12 +6,14 @@
 #include "Engine/Components/IsClicked.h"
 #include "Game/Tower.h"
 #include <string>
+#include "Game.h"
+#include "Engine/GameManager.h"
 Tile::Tile(int tile) 
 {
 	m_tile = tile;
 	m_scale = 50.5;
 	m_towerMade = false;
-
+	
 }
 
 Tile::~Tile()
@@ -37,10 +39,11 @@ void Tile::Update(double deltaTime)
 	Actor::Update(deltaTime);
 	if (m_clicked != nullptr)
 		if (m_clicked->IfClicked() && m_clicked->IfPlaced())
-			if (!m_towerMade)
+			if (!m_towerMade && GameManager::instance->GetMoney() >= GameManager::instance->GetTowerCost())
 			{
 				Actor::Instantiate(new Tower(), nullptr, Transform->GlobalPosition());
 				m_towerMade = true;
+				GameManager::instance->SubstractMoney(GameManager::instance->GetTowerCost());
 			}
 	DrawRectangleLinesEx(m_sprite->GetDestination(), 1 , BLACK);
 	

@@ -6,6 +6,7 @@
 #include "Game.h"
 #include "Engine/Scene/Scene.h"
 #include <iostream>
+#include "Engine/GameManager.h"
 
 Enemy::Enemy()
 {
@@ -42,7 +43,9 @@ void Enemy::OnCollision(Actor* other)
 {
 	if (dynamic_cast<Bullet*>(other) != nullptr)
 	{
-		Game::instance->GetCurrentScene()->RemoveActor(this);	
+		Game::instance->GetCurrentScene()->RemoveActor(this);
+		Game::instance->GetCurrentScene()->RemoveActor(other);
+		GameManager::instance->AddMoney(5);
 	}
 }
 

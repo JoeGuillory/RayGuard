@@ -15,6 +15,6 @@ public:
 
 	Actor* m_spawnmanager;
 	char m_round[256];
-
+	char m_money[256];
 
 };

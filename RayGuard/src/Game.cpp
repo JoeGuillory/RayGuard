@@ -13,6 +13,7 @@
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
+
 Game::Game()
 {
     if (m_currentscene == nullptr)
@@ -23,7 +24,7 @@ Game::Game()
     m_testscene = new TestScene();
     m_levelOne = new LevelOne();
     m_texturemanager = new TextureManager();
-   
+    m_instance = new GameManager();
 }
 Game::~Game()
 {
