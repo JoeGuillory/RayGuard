@@ -2,9 +2,7 @@
 #include "Actor.h"
 #include "Matrix3.h"
 #include <cmath>
-#define _USE_MATH_DEFINES
-#include <math.h>
-#include "DynamicArray.h"
+#define PI  3.14159265358979323846f
 
 Transform2D::Transform2D(Actor* Owner) 
 {
@@ -169,7 +167,7 @@ void Transform2D::LocalRotation(MathLibrary::Matrix3 rotation)
 /// <returns></returns>
 float Transform2D::ToDegrees(float radian)
 {
-	return (radian * 180) / M_PI;
+	return (radian * 180) / PI;
 }
 /// <summary>
 /// Calculates the input to radians
@@ -178,7 +176,7 @@ float Transform2D::ToDegrees(float radian)
 /// <returns></returns>
 float Transform2D::ToRadians(float degree)
 {
-	return degree * M_PI / 180;
+	return degree * PI / 180;
 }
 /// <summary>
 /// Returns this objects local rotation angle in degrees
@@ -186,7 +184,7 @@ float Transform2D::ToRadians(float degree)
 /// <returns></returns>
 float Transform2D::GetToDegrees()
 {
-	return (this->m_localRotationAngle * 180) / M_PI;
+	return (this->m_localRotationAngle * 180) / PI;
 }
 
 MathLibrary::Vector2 Transform2D::GetForward()

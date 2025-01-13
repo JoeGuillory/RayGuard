@@ -1,6 +1,6 @@
 #pragma once
 
-struct GameManager
+class GameManager
 {
 public:
 	GameManager();
