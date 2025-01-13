@@ -4,6 +4,8 @@
 #include "Engine/Transform2D.h"
 #include "Bullet.h"
 #include "Engine/Components/Sprite.h"
+#include "Game.h"
+#include "Engine/Scene/Scene.h"
 
 Bullet::Bullet()
 {
@@ -34,7 +36,7 @@ void Bullet::Update(double deltaTime)
 	if (Transform->LocalPosition().x > GetScreenWidth() ||
 		(Transform->LocalPosition().y > GetScreenHeight()))
 	{
-		Destroy(Actor);
+		Game::instance->GetCurrentScene()->RemoveActor(this);
 	}
 	
 
