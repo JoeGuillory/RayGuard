@@ -41,7 +41,7 @@ void LevelOne::Update(double deltaTime)
 		strncpy_s(m_money, "Money: ", 7);
 		strncat_s(m_money, std::to_string((int)GameManager::instance->GetMoney()).c_str(), 4);
 
-		DrawText(m_money, 600, 300, 20, BLACK);
+		DrawText(m_money, 50, 350, 60, BLACK);
 	}
 	else if (dynamic_cast<SpawnManager*>(m_spawnmanager)->IsCompleted())
 	{
