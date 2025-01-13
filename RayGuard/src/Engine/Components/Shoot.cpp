@@ -41,4 +41,5 @@ void Shoot::End()
 void Shoot::ShootBullet()
 {
 	Actor::Instantiate(new Bullet(), nullptr, _owner->Transform->GlobalPosition(), m_angle);
+	
 }

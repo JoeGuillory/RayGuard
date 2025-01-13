@@ -16,5 +16,6 @@ public:
 private:
 	Sprite* m_sprite;
 	Shoot* m_shoot;
+	float m_cost;
 };
 

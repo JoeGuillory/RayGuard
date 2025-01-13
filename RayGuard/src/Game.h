@@ -1,6 +1,7 @@
 #pragma once
 #include "DynamicArray.h"
 #include <chrono>
+#include "Engine/GameManager.h"
 class TextureManager;
 class Scene;
 class Game
@@ -17,6 +18,8 @@ public:
 	 bool RemoveScene(Scene* scene);
 	 static Scene* GetScene(int index);
 	 static Game* instance;
+	 GameManager GameManager;
+	 
 
 private:
 	Scene* m_mainmenu;
@@ -27,7 +30,6 @@ private:
 	TextureManager* m_texturemanager;
 	std::chrono::time_point<std::chrono::steady_clock> m_currentTime;
 	std::chrono::time_point<std::chrono::steady_clock> m_lastTime;
-	
 	double m_deltaTime;
 
 };

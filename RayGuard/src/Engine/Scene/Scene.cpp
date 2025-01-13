@@ -60,6 +60,7 @@ void Scene::Update(double deltaTime)
 	}
 
 
+
 	m_actors.Remove(m_actorsToBeRemoved);
 }
 

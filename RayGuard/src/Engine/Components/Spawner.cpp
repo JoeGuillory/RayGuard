@@ -25,7 +25,7 @@ void Spawner::Update(double deltaTime)
 	{
 		m_finishedSpawning = false;
 		m_time += 1.000 * deltaTime;
-		if (m_time > 5)
+		if (m_time > 1)
 		{
 			if (m_spawned < m_spawncount)
 			{

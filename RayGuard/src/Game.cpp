@@ -9,6 +9,7 @@
 #include "Engine/Scene/LevelOne.h"
 #include <chrono>
 #include <iostream>
+#include "Engine/GameManager.h"
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
@@ -22,7 +23,7 @@ Game::Game()
     m_testscene = new TestScene();
     m_levelOne = new LevelOne();
     m_texturemanager = new TextureManager();
-
+    
 }
 Game::~Game()
 {
@@ -49,7 +50,7 @@ void Game::Run()
         m_currentTime = std::chrono::high_resolution_clock::now();
         m_currentscene->Update(m_deltaTime);
        
-
+        
         EndDrawing();
 
         m_lastTime = std::chrono::high_resolution_clock::now();
