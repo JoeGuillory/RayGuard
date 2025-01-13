@@ -11,7 +11,7 @@
 #include "Game/SpawnManager.h"
 #include <string>
 #include "Engine/GameManager.h"
-
+#include "Base.h"
 
 LevelOne::LevelOne()
 {
@@ -26,7 +26,7 @@ void LevelOne::Start()
 	Scene::Start();
 	DrawTiles();
 	m_spawnmanager = Actor::Instantiate(new SpawnManager(5),nullptr,{850,225});
-	
+	Actor::Instantiate(new Base());
 }
 
 void LevelOne::Update(double deltaTime)
