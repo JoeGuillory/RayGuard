@@ -42,9 +42,7 @@ void Enemy::OnCollision(Actor* other)
 {
 	if (dynamic_cast<Bullet*>(other) != nullptr)
 	{
-		std::cout << "Enemy hit: " << this << std::endl;
-		Game::instance->GetCurrentScene()->RemoveActor(this);
-		
+		Game::instance->GetCurrentScene()->RemoveActor(this);	
 	}
 }
 

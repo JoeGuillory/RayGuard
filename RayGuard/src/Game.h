@@ -18,7 +18,6 @@ public:
 	 bool RemoveScene(Scene* scene);
 	 static Scene* GetScene(int index);
 	 static Game* instance;
-	 GameManager GameManager;
 	 
 
 private:

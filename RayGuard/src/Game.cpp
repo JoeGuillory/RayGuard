@@ -13,6 +13,7 @@
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
+GameManager Manager;
 Game::Game()
 {
     if (m_currentscene == nullptr)

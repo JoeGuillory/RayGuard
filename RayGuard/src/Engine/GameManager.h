@@ -1,6 +1,6 @@
 #pragma once
 
-static struct GameManager
+struct GameManager
 {
 public:
 	GameManager();

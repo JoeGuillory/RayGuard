@@ -34,7 +34,6 @@ Transform2D::~Transform2D()
 void Transform2D::Translate(MathLibrary::Vector2 direction)
 {
 	LocalPosition(LocalPosition() + direction);
-	
 }
 
 void Transform2D::Translate(float x, float y)
@@ -46,6 +45,8 @@ void Transform2D::Rotate(float radians)
 {
 	*m_localRotation = MathLibrary::Matrix3::createRotation(m_localRotationAngle + radians);
 }
+
+
 
 void Transform2D::SetAngle(float radians)
 {
