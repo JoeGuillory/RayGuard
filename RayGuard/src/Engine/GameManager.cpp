@@ -1,5 +1,4 @@
 #include "GameManager.h"
-
 GameManager::GameManager()
 {
 	m_money = 20;

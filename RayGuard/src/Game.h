@@ -4,6 +4,7 @@
 #include "Engine/GameManager.h"
 class TextureManager;
 class Scene;
+class GameManager;
 class Game
 {
 public:
@@ -18,7 +19,7 @@ public:
 	 bool RemoveScene(Scene* scene);
 	 static Scene* GetScene(int index);
 	 static Game* instance;
-	 static GameManager* Game_instace;
+	 
 
 private:
 	Scene* m_mainmenu;

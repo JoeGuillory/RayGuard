@@ -10,5 +10,5 @@ public:
 
 	float m_money;
 	float m_playerHealth;
-
+	
 };
