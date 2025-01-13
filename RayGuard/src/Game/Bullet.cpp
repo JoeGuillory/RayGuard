@@ -4,6 +4,8 @@
 #include "Engine/Transform2D.h"
 #include "Bullet.h"
 #include "Engine/Components/Sprite.h"
+#include "Game.h"
+#include "Engine/Scene/Scene.h"
 
 Bullet::Bullet()
 {
@@ -30,6 +32,12 @@ void Bullet::Update(double deltaTime)
 	Actor::Update(deltaTime);
 	dynamic_cast<CircleCollider*>(m_Collider)->Draw();
 	Transform->Translate(Transform->GetForward() * deltaTime * 2000);
+	
+	if (Transform->LocalPosition().x > GetScreenWidth() ||
+		(Transform->LocalPosition().y > GetScreenHeight()))
+	{
+		Game::instance->GetCurrentScene()->RemoveActor(this);
+	}
 	
 
 }
