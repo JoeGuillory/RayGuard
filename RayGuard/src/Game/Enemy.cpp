@@ -11,7 +11,7 @@
 Enemy::Enemy()
 {
 	m_scale = 60;
-	health = 100.0f;
+	m_enemyHealth = GameManager::instance->GetEnemyHealth();
 }
 
 Enemy::~Enemy()
@@ -36,6 +36,11 @@ void Enemy::Update(double deltatime)
 	dynamic_cast<CircleCollider*>(m_Collider)->Draw();
 	Transform->Translate(Transform->GetForward() * deltatime * -200);
 	
+	if (m_enemyHealth <= 0)
+	{
+		GameManager::instance->AddMoney(GameManager::instance->GetAmountOnKill());
+		Game::instance->GetCurrentScene()->RemoveActor(this);
+	}
 }
 
 
@@ -43,15 +48,8 @@ void Enemy::OnCollision(Actor* other)
 {
 	if (dynamic_cast<Bullet*>(other) != nullptr)
 	{
-		bool moneyAdded = false;
-		
-		Game::instance->GetCurrentScene()->RemoveActor(this);
+		m_enemyHealth -= GameManager::instance->GetBulletDamage();
 		Game::instance->GetCurrentScene()->RemoveActor(other);
-		if (!moneyAdded)
-		{
-			GameManager::instance->AddMoney(5);
-			moneyAdded = true;
-		}
 	}
 }
 

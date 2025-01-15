@@ -7,7 +7,8 @@ public:
 	~Enemy();
 	void Start();
 	void Update(double deltatime);
-	float health;
 	void OnCollision(Actor* other);
 	void End();
+private:
+	float m_enemyHealth ;
 };

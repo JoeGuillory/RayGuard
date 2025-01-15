@@ -9,7 +9,7 @@
 
 Bullet::Bullet()
 {
-	m_scale = 150;
+	m_scale = 100;
 }
 
 Bullet::~Bullet()
@@ -22,7 +22,7 @@ void Bullet::Start()
 	Sprite* m_sprite = Actor::AddComponent<Sprite>(new Sprite(this, 11));
 	m_sprite->SetBothScaler(m_scale);
 	m_sprite->SetOffset({ m_scale / 2,m_scale / 2 });
-	m_Collider = new CircleCollider(this, 25);
+	m_Collider = new CircleCollider(this, 10);
 	dynamic_cast<CircleCollider*>(m_Collider)->EnableDraw(true);
 	
 }
