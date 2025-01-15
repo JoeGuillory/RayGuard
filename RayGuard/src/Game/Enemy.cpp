@@ -43,9 +43,15 @@ void Enemy::OnCollision(Actor* other)
 {
 	if (dynamic_cast<Bullet*>(other) != nullptr)
 	{
+		bool moneyAdded = false;
+		
 		Game::instance->GetCurrentScene()->RemoveActor(this);
 		Game::instance->GetCurrentScene()->RemoveActor(other);
-		GameManager::instance->AddMoney(5);
+		if (!moneyAdded)
+		{
+			GameManager::instance->AddMoney(5);
+			moneyAdded = true;
+		}
 	}
 }
 
