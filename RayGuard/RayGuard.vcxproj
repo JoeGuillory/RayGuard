@@ -149,6 +149,7 @@
     <ClCompile Include="src\Engine\Components\Spawner.cpp" />
     <ClCompile Include="src\Engine\Components\Sprite.cpp" />
     <ClCompile Include="src\Engine\GameManager.cpp" />
+    <ClCompile Include="src\Engine\Scene\GameOver.cpp" />
     <ClCompile Include="src\Engine\Scene\LevelOne.cpp" />
     <ClCompile Include="src\Engine\Scene\MainMenu.cpp" />
     <ClCompile Include="src\Engine\Scene\Scene.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\Engine\Components\Spawner.h" />
     <ClInclude Include="src\Engine\Components\Sprite.h" />
     <ClInclude Include="src\Engine\GameManager.h" />
+    <ClInclude Include="src\Engine\Scene\GameOver.h" />
     <ClInclude Include="src\Engine\Scene\LevelOne.h" />
     <ClInclude Include="src\Engine\Scene\MainMenu.h" />
     <ClInclude Include="src\Engine\Scene\Scene.h" />

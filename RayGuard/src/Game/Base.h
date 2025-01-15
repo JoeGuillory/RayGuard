@@ -1,5 +1,6 @@
 #pragma once
 #include "Engine\Actor.h"
+
 class Base : public Actor
 {
 public:
