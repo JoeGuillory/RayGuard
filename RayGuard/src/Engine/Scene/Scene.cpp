@@ -70,8 +70,8 @@ void Scene::Update(double deltaTime)
 
 void Scene::End()
 {
-	for (Actor* element : m_actors)
-		element->End();
+	for (int i = 0; i < m_actors.Length(); i++)
+		m_actors[i]->End();
 }
 
 void Scene::DrawTiles()

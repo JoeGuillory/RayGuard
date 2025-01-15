@@ -48,12 +48,18 @@ void LevelOne::Update(double deltaTime)
 		// Get next Game scene
 
 	}
-
+	if (GameManager::instance->GetPlayerHealth() <= 0)
+	{
+		GameManager::instance->Reset();
+		Game::instance->SetCurrentScene(Game::instance->GetScene(2));
+	}
 }
 
 void LevelOne::End()
 {
 	Scene::End();
+	for (int i = 0; i < m_actors.Length(); i++)
+		RemoveActor(m_actors[i]);
 }
 
 void LevelOne::DrawTiles()

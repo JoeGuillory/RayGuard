@@ -7,6 +7,7 @@
 #include "Engine/Scene/TestScene.h"
 #include "Engine/Scene/MainMenu.h"
 #include "Engine/Scene/LevelOne.h"
+#include "Engine/Scene/GameOver.h"
 #include <chrono>
 #include <iostream>
 #include "Engine/GameManager.h"
@@ -23,6 +24,7 @@ Game::Game()
     m_mainmenu = new MainMenu();
     m_testscene = new TestScene();
     m_levelOne = new LevelOne();
+    m_gameOver = new GameOver();
     m_texturemanager = new TextureManager();
     m_instance = new GameManager();
 }
@@ -41,6 +43,7 @@ void Game::Run()
     m_texturemanager->LoadTextures();
     AddScene(m_mainmenu);
     AddScene(m_levelOne);
+    AddScene(m_gameOver);
     AddScene(m_testscene);
 
     SetCurrentScene(m_mainmenu);

@@ -10,7 +10,6 @@
 Base::Base()
 {
 	m_scale = 45;
-	GameManager::instance->GetPlayerHealth();
 }
 
 Base::~Base()
@@ -31,6 +30,8 @@ void Base::Start()
 void Base::Update(double deltatime)
 {
 	Actor::Update(deltatime);
+
+	
 }
 
 void Base::OnCollision(Actor* other)
@@ -47,4 +48,5 @@ void Base::OnCollision(Actor* other)
 void Base::End()
 {
 	Actor::End();
+	
 }
