@@ -38,7 +38,7 @@ void LevelOne::Update(double deltaTime)
 		strncat_s(m_round, std::to_string(dynamic_cast<SpawnManager*>(m_spawnmanager)->GetRound()).c_str(), 3);
 		DrawText( m_round , GetScreenWidth() / 3, 10, 60, BLACK);
 
-		strncpy_s(m_money, "Money: ", 7);
+		strncpy_s(m_money, "Gold: ", 7);
 		strncat_s(m_money, std::to_string((int)GameManager::instance->GetMoney()).c_str(), 4);
 
 		DrawText(m_money, 50, 350, 60, BLACK);
