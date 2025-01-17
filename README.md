@@ -8,6 +8,15 @@ Date of acsess 1/8/2025
 
 Kenny Art's website:https://kenney.nl/
 
+# How To Download
+
+Go to release and click the lastest release or click this link https://github.com/JoeGuillory/RayGuard/releases/tag/1.0
+
+Download the Rayguard.zip
+
+Once extracted open the Rayguard.exe and enjoy
+
+
 # Controls 
 |Key|Action|
 |:---:|:--:|
