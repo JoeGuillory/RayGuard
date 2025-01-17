@@ -29,7 +29,7 @@ void Tower::Start()
 	m_shoot = AddComponent<Shoot>(new Shoot(this, 6));
 	m_sprite->SetBothScaler(35);
 	m_sprite->SetOffset({ 35 / 2,35 / 2 });
-	m_Collider = new CircleCollider(this, 150);
+	m_Collider = new CircleCollider(this, 100);
 	dynamic_cast<CircleCollider*>(m_Collider)->EnableDraw(true);
 }
 
