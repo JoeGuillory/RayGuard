@@ -33,7 +33,7 @@ void MainMenu::Update(double deltatime)
 	
 	
 	Scene::Update(deltatime);
-	
+	// What it Draws
 	DrawText("Welcome to RayGuard", 120, 20, 50, BLACK);
 	DrawText("Press Enter to Start ", 130, 130, 40, BLACK);
 	
