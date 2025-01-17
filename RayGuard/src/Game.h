@@ -27,6 +27,7 @@ private:
 	Scene* m_testscene;
 	Scene* m_levelOne;
 	Scene* m_gameOver;
+	Scene* m_winScreen;
 	static DynamicArray<Scene*> m_scenes;
 	static Scene* m_currentscene;
 	TextureManager* m_texturemanager;

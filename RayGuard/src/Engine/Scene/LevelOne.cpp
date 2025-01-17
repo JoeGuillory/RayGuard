@@ -46,7 +46,7 @@ void LevelOne::Update(double deltaTime)
 	else if (dynamic_cast<SpawnManager*>(m_spawnmanager)->IsCompleted())
 	{
 		// Get next Game scene
-
+		Game::instance->SetCurrentScene(Game::instance->GetScene(4));
 	}
 	if (GameManager::instance->GetPlayerHealth() <= 0)
 	{

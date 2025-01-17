@@ -11,6 +11,7 @@
 #include <chrono>
 #include <iostream>
 #include "Engine/GameManager.h"
+#include "Engine/Scene/WinScreen.h"
 
 Scene* Game::m_currentscene = nullptr;
 DynamicArray<Scene*> Game::m_scenes;
@@ -25,6 +26,7 @@ Game::Game()
     m_testscene = new TestScene();
     m_levelOne = new LevelOne();
     m_gameOver = new GameOver();
+    m_winScreen = new WinScreen();
     m_texturemanager = new TextureManager();
     m_instance = new GameManager();
 }
@@ -45,6 +47,7 @@ void Game::Run()
     AddScene(m_levelOne);
     AddScene(m_gameOver);
     AddScene(m_testscene);
+    AddScene(m_winScreen);
 
     SetCurrentScene(m_mainmenu);
     while (!WindowShouldClose())
