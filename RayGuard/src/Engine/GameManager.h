@@ -7,9 +7,9 @@ public:
 	~GameManager();
 
 	void Reset();
-	float GetMoney() { return m_money; }
-	void SubstractMoney(float money) { m_money = m_money - money; }
-	void AddMoney(float money) { m_money = m_money + money; }
+	float GetMoney() { return m_gold; }
+	void SubstractMoney(float money) { m_gold = m_gold - money; }
+	void AddMoney(float money) { m_gold = m_gold + money; }
 	float GetTowerCost() { return m_towerCost; }
 	float GetPlayerHealth() { return m_playerHealth; }
 	float GetEnemyHealth() { return m_enemyBaseHealth; }
@@ -19,7 +19,7 @@ public:
 	float GetAmountOnKill() { return m_amountOnKill; }
 	static GameManager* instance;
 private:
-	float m_money;
+	float m_gold;
 	float m_playerHealth;
 	float m_bulletDamage;
 	float m_towerCost;
