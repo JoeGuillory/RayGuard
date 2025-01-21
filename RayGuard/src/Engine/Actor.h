@@ -56,14 +56,6 @@ public:
 	Collider* m_Collider;
 	Transform2D* Transform;
 
-
-	/*Thing that need to be added
-
-	1. Add a collision component and add a OnCollision function 
-	*/
-
-
-
 };
 
 
